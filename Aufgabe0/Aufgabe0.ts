@@ -6,3 +6,5 @@ function Willkommen() : void {
             "Hallo " + name + "! Willkommen auf der Mini-Website.";
     }
 }
+
+
