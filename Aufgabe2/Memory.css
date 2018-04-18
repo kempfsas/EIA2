@@ -38,9 +38,24 @@ h2 {
   perspective: 1500;
 }
 
-.card {
-  height: 175px;
-  width: 175px;
+#card-field div {
+height: 70px;
+	width: 70px;
+	border-radius: 5px;
+	margin: 0px 20px 20px 0px;
+	cursor: pointer;
+	text-align: center;
+	line-height: 70px;
+	position: relative;
+	font-family: 'Dancing Script' , cursive;	
+	font-size: 200%;
+}
+
+
+
+/*.card {
+  height: 100px;
+  width: 100px;
   margin: 0px 20px 20px 0px;
   cursor: pointer;
   text-align: center;
@@ -52,7 +67,7 @@ h2 {
   -webkit-transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
   pointer-events: auto;
-}
+}*/
 
 .card::after {
   content: "";
