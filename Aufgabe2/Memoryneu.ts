@@ -8,7 +8,8 @@ namespace Memory {
     let cardContent: string[] = ["Ananas", "Mango", "Papaya", "Kiwi", "Pfirsich", "Erdbeere", "Banane", "Apfel", "Birne", "Himbeere"];
     let cardArray: string[] = []; //Leeres Array, in das die Kartenpaare später hineingespeichert werden
     let player: string[] = []; //Leeres Array, in das die Spieler später hineingespeichert werden
-    let score: number[] = [0, 0, 0, 0]; //Punktestand = 0, ist vordefiniert
+    let score: number[] = [0, 0, 0, 0]; //Punktestand = 0, ist vordefiniert --> umändern weil es sonst die Punkte nicht zählt??
+    
 
     /*Kartenansicht zufällig generieren lassen (Zufallsgenerator)*/
     /*mit welcher Wahrscheinlichkeit die Karte verdeckt, offen oder als bereits weggenommen angezeigt wird*/

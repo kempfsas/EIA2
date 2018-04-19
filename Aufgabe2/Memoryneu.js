@@ -7,7 +7,7 @@ var Memory;
     let cardContent = ["Ananas", "Mango", "Papaya", "Kiwi", "Pfirsich", "Erdbeere", "Banane", "Apfel", "Birne", "Himbeere"];
     let cardArray = []; //Leeres Array, in das die Kartenpaare sp�ter hineingespeichert werden
     let player = []; //Leeres Array, in das die Spieler sp�ter hineingespeichert werden
-    let score = [0, 0, 0, 0]; //Punktestand = 0, ist vordefiniert
+    let score = [0, 0, 0, 0]; //Punktestand = 0, ist vordefiniert --> um�ndern weil es sonst die Punkte nicht z�hlt??
     /*Kartenansicht zuf�llig generieren lassen (Zufallsgenerator)*/
     /*mit welcher Wahrscheinlichkeit die Karte verdeckt, offen oder als bereits weggenommen angezeigt wird*/
     function mixCards() {
