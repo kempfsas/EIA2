@@ -1,19 +1,19 @@
 
 namespace Memory {
     /*Variablen für das Spiel deklarieren*/
-    let numPairs: number;
-    let numPlayers: number;
+    let numPairs: number; //Anzahl Kartenpaare
+    let numPlayers: number; //Anzahl Spieler
 
     /*Array*/
     let cardContent: string[] = ["Ananas", "Mango", "Papaya", "Kiwi", "Pfirsich", "Erdbeere", "Banane", "Apfel", "Birne", "Himbeere"];
-    let cardArray: string[] = [];
-    let player: string[] = [];
-    let score: number[] = [0, 0, 0, 0];
+    let cardArray: string[] = []; //Leeres Array, in das die Kartenpaare später hineingespeichert werden
+    let player: string[] = []; //Leeres Array, in das die Spieler später hineingespeichert werden
+    let score: number[] = [0, 0, 0, 0]; //Punktestand = 0, ist vordefiniert
 
     /*Kartenansicht zufällig generieren lassen (Zufallsgenerator)*/
     /*mit welcher Wahrscheinlichkeit die Karte verdeckt, offen oder als bereits weggenommen angezeigt wird*/
     function mixCards(): string {
-        let randomState: number = Math.random();
+        let randomState: number = Math.random(); //math.random gibt zufällige Zahl zwischen 0 & 1
         if (randomState <= 0.5) { /*50%ige Wahrscheinlichkeit, dass die Karte verdeckt angezeigt wird*/
             return "hidden";
         } else if (randomState > 0.5 && randomState <= 0.75) {
@@ -28,41 +28,41 @@ namespace Memory {
     function shuffleCards(): void {
         let i: number = cardArray.length;
         let j: number = 0;
-        let temporarilyShown: string = "";
-        while (--i > 0) {
-            j = Math.floor(Math.random() * (i + 1));
-            temporarilyShown = cardArray[j];
+        let temp: string = ""; //string ohne Textinhalt
+        while (--i > 0) { //Variable i(Länge des Arrays) wird immer um 1 herunter gezählt und muss immer größer 0 sein
+            j = Math.floor(Math.random() * (i + 1)); //j=0, eine random Zahl zwischen 0 und 1 tritt dadurch auf
+            temp = cardArray[j];
             cardArray[j] = cardArray[i];
-            cardArray[j] = temporarilyShown;
+            cardArray[j] = temp;
         }
     }
 
 
     /*Spielfeld und Spielinfo im ts erzeugen lassen*/
 
-    /*Spielfeld erstellen */
+    /*Spielfeld dynamisch erstellen */
     function createBoard(): void {
         let node: any = document.getElementById("Spielfeld");
         shuffleCards();
         let childNodeHTML: string = "";
         childNodeHTML += "<h2>Spielfeld</h2>";
         childNodeHTML += "<div class='card'>";
-        for (let i: number = 0; i < cardArray.length; i++) {
+        for (let i: number = 0; i < cardArray.length; i++) { //Schleife erstellen, i=0, muss kleiner als die cardArray Länge sein und wird hochgezählt
             childNodeHTML += "<div>";
             childNodeHTML += "<div class=\"";
-            childNodeHTML += mixCards();
+            childNodeHTML += mixCards(); //Aufruf der Funktion für den Status der Karte
             childNodeHTML += "\">";
-            childNodeHTML += cardArray[i];
+            childNodeHTML += cardArray[i]; //cardArray wird ausgegeben
             childNodeHTML += "</div></div>";
         }
         childNodeHTML += "</div>";
-        node.innerHTML += childNodeHTML;
+        node.innerHTML += childNodeHTML; //Inhalt der Knoten mit childNodeHTML befüllen 
 
-        console.log(childNodeHTML);
+        console.log(childNodeHTML); //Aufruf auf der Konsole
     }
 
 
-    /*Spielinformation erstellen*/ 
+    /*Spielinformation dynamisch erstellen*/ 
     function gameInfo(): void {
         let node: any = document.getElementById("Spielinfo");
         let childNodeHTML: string = "";
@@ -71,50 +71,61 @@ namespace Memory {
             childNodeHTML += "<div id=Spieler";
             childNodeHTML += i;
             childNodeHTML += ">";
-            childNodeHTML += "<p>Spielername: ";
+            childNodeHTML += "<p>Spielername: "; //Spielername wird erzeugt
             childNodeHTML += player[i];
             childNodeHTML += "</p>";
-            childNodeHTML += "<p>Punktestand: ";
+            childNodeHTML += "<p>Punktestand: "; //Punktestand wird erzeugt
             childNodeHTML += score[i];
             childNodeHTML += "</p></div>";
         }
         childNodeHTML += "</div>";
         node.innerHTML += childNodeHTML;
 
-        console.log(childNodeHTML);
+        console.log(childNodeHTML); //Aufruf auf der Konsole
     }
 
     /* Hauptprogramm */
     function main(): void {
         console.log("main");
         /*Abfrage für die Anzahl der Spieler erstellen (mit numPlayers)*/
+        //Funtion für die Spielerabfrage erstellen
+        //Variable i definieren,, wenn i wahr ist
         let i: boolean = true;
         while (i) {
+            //Popup für Spieleranzeige wird erstellt, 10 steht für das Dezimalsystem
             numPlayers = parseInt(prompt("Bitte wÃ¤hlen Sie zwischen 1 und 4 Spielern"), 10);
+            //Die Spieleranzahl muss größer gleich 1 und kleiner gleich 4 sein, damit 1-4 Spieler möglich sind
             if (numPlayers >= 1 && numPlayers <= 4) {
+                //Ansonsten ist i falsch und die Schleife wird wiederholt
                 i = false;
             }
         }
 
+        //Schleife für die Abfrage der Spielernamen wird erzeugt, Variable i wird definiert, i=0, i ist kleiner als die Anzahl der Spieler, i wird hochgezählt
         for (let i: number = 0; i < numPlayers; i++) {
+            //Popup für Namen der Spieler wird erzeugt, wenn es mehrere Spielr gibt wird i hochgezählt und der Name des nächsten Spielers wird abgefragt
             player[i] = prompt("Bitte Spielernamen " + ( i +1) + " eingeben");
+            //Wenn es keinen Spieler gibt, wird ein Spieler erzeugt, welcher Fruitninja heißt
             if (player[i] == null) {
-                player[i] = "Mickey";
+                player[i] = "Fruitninja";
             }
         }
 
         /* Abfrage für die Anzahl der Paare erstellen (mit numPairs)*/
         i = true;
         while (i) {
+            //Popup für Kartenpaarabfrage wird erstellt, 10 steht für das Dezimalsystem
             numPairs = parseInt(prompt("Bitte wÃ¤hlen Sie zwischen 5 und 15 Kartenpaaren"), 10);
+            //Die Anzahl der Kartenpaare muss größer gleich 5 und kleiner gleich 10 sein
             if (numPairs >= 5 && numPairs <= 15) {
                 i = false;
             }
         }
 
         /* Schleife fÃ¼r die Kartenpaare */
+    //Variable i wird definiert, i=0, ist kleiner als die Anzahl der Paare, i wird hochgezählt
         for (let i: number = 0; i < numPairs; i++) {
-            /* cardContent 2x an cardArray [] anfï¿½gen */
+            //Karteninhalt wird verdoppelt, Karten werden verdoppelt/angeheftet
             cardArray.push(cardContent[i]);
             cardArray.push(cardContent[i]);
         }
@@ -127,7 +138,7 @@ namespace Memory {
         }
  
  
-    
+    // Add EventListener - Main() wird ausgeführt, sobald das DOM vollständig geladen ist
     document.addEventListener("DOMContentLoaded", main);
 }
 
