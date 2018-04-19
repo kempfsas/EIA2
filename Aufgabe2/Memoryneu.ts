@@ -104,7 +104,7 @@ namespace Memory {
         //Schleife für die Abfrage der Spielernamen wird erzeugt, Variable i wird definiert, i=0, i ist kleiner als die Anzahl der Spieler, i wird hochgezählt
         for (let i: number = 0; i < numPlayers; i++) {
             //Popup für Namen der Spieler wird erzeugt, wenn es mehrere Spielr gibt wird i hochgezählt und der Name des nächsten Spielers wird abgefragt
-            player[i] = prompt("Bitte Spielernamen " + ( i +1) + " eingeben");
+            player[i] = prompt("Bitte Spielernamen " + ( i + 1) + " eingeben");
             //Wenn es keinen Spieler gibt, wird ein Spieler erzeugt, welcher Fruitninja heißt
             if (player[i] == null) {
                 player[i] = "Fruitninja";
