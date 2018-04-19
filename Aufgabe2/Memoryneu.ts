@@ -16,9 +16,9 @@ namespace Memory {
         let randomState: number = Math.random(); //math.random gibt zufällige Zahl zwischen 0 & 1
         if (randomState <= 0.5) { /*50%ige Wahrscheinlichkeit, dass die Karte verdeckt angezeigt wird*/
             return "hidden";
-        } else if (randomState > 0.5 && randomState <= 0.75) {
+        } else if (randomState <= 0.75) {
             return "taken";
-        } else if (randomState > 0.75) {
+        } else {
             return "visible";
         }
     }

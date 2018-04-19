@@ -15,10 +15,10 @@ var Memory;
         if (randomState <= 0.5) {
             return "hidden";
         }
-        else if (randomState > 0.5 && randomState <= 0.75) {
+        else if (randomState <= 0.75) {
             return "taken";
         }
-        else if (randomState > 0.75) {
+        else {
             return "visible";
         }
     }
