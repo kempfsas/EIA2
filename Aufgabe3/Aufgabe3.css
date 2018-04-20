@@ -1,0 +1,93 @@
+/*Allgemeines Stylesheet*/
+body {
+  font-family: 'Raleway', monospace;
+  font-size: 20px;
+  background-color: #ffe6ff/*#5a6472*/;
+}
+
+h2 {
+	text-align: center;
+}
+
+
+/* Spielinfo */
+#Spielinfo {
+  height: 100vh;
+  width: 22%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #ffccff;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 20px 0px #ff4d4d;
+}
+
+#Spielinfo h2 {
+  margin-bottom: 50px;
+}
+
+#Spielinfo div {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* Spielfeld */
+#Spielfeld {
+  height: auto;
+  max-width: 78%;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-left: 20%;
+}
+
+#Spielfeld h2 {
+  color: dark-gray;
+  text-align: center;
+}
+
+
+#Spielfeld > div {
+	position: relative;
+	margin: 5%;
+	height: auto;
+	width: auto;
+	display: flex;
+	flex-wrap: wrap;	
+}
+
+
+#Spielfeld div > div {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	perspective: 1500;
+	height: 180px;
+	width: 180px;
+	margin: 0px 20px 20px 0px;
+	text-align: center;
+	line-height: 175px;
+	position: relative;
+	font-size: 125%;
+	cursor: pointer;
+	}
+
+
+
+
+
+.visible{
+	background-color: #ffb3b3;
+  	pointer-events: auto;	
+}
+
+.hidden {
+  background-color: #ff6666;
+	text-indent: -99999px;
+	transform: rotateY(180deg);
+}
+.taken {
+  transform: scale(0);
+  background-color: transparent;
+}
