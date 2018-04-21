@@ -31,10 +31,10 @@ namespace Memory {
         let j: number = 0;
         let temp: string = ""; //string ohne Textinhalt
         while (--i > 0) { //Variable i(Länge des Arrays) wird immer um 1 herunter gezählt und muss immer größer 0 sein
-            j = Math.floor(Math.random() * (i + 1)); //j=0, eine random Zahl zwischen 0 und 1 tritt dadurch auf
+            j = Math.floor(Math.random() * (i+1)); //j=0, eine random Zahl zwischen 0 und 1 tritt dadurch auf
             temp = cardArray[j];
             cardArray[j] = cardArray[i];
-            cardArray[j] = temp;
+            cardArray[i] = temp;
         }
     }
 

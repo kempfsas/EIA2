@@ -61,7 +61,7 @@ var Memory;
             j = Math.floor(Math.random() * (i + 1)); //j=0, eine random Zahl zwischen 0 und 1 tritt dadurch auf
             temp = cardArray[j];
             cardArray[j] = cardArray[i];
-            cardArray[j] = temp;
+            cardArray[i] = temp;
         }
     }
     /*Spielfeld und Spielinfo im ts erzeugen lassen*/
@@ -146,6 +146,11 @@ var Memory;
             cardArray.push(cardContent[i]);
             cardArray.push(cardContent[i]);
         }
+        /*function gratulation() : void {
+                if (mixCards() == "taken") {
+                    alert("Gratulation");
+                }
+            } gratulation();*/
         /* Befehl zum Spielfeld erzeugen */
         createBoard();
         /* Befehl zum Spielinfo erzeugen */

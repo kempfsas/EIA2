@@ -58,15 +58,18 @@ namespace Memory {
     counter = 0;
     
     }
+        
 }
 
-
+    
     //Karten werden alle als hidden angezeigt
     function mixCards(): string {
         return "hidden";
     }
 
 
+    
+    
     /*Karten mischen*/
     function shuffleCards(): void {
         let i: number = cardArray.length;
@@ -76,10 +79,12 @@ namespace Memory {
             j = Math.floor(Math.random() * (i + 1)); //j=0, eine random Zahl zwischen 0 und 1 tritt dadurch auf
             temp = cardArray[j];
             cardArray[j] = cardArray[i];
-            cardArray[j] = temp;
+            cardArray[i] = temp;
         }
     }
-
+       
+    
+    
 
     /*Spielfeld und Spielinfo im ts erzeugen lassen*/
 
@@ -120,6 +125,7 @@ namespace Memory {
             childNodeHTML += "<p>Punktestand: "; //Punktestand wird erzeugt
             childNodeHTML += score[i];
             childNodeHTML += "</p></div>";
+            
         }
         childNodeHTML += "</div>";
         node.innerHTML += childNodeHTML;
@@ -127,6 +133,8 @@ namespace Memory {
         console.log(childNodeHTML); //Aufruf auf der Konsole
     }
 
+    
+    
     /* Hauptprogramm */
     function main(): void {
         console.log("main");
@@ -172,6 +180,15 @@ namespace Memory {
             cardArray.push(cardContent[i]);
             cardArray.push(cardContent[i]);
         }
+        
+        
+        /*function gratulation() : void {
+                if (mixCards() == "taken") {
+                    alert("Gratulation");
+                }
+            } gratulation();*/
+        
+       
 
         /* Befehl zum Spielfeld erzeugen */
         createBoard();
