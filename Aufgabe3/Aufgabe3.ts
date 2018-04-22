@@ -47,7 +47,7 @@ namespace Memory {
             document.getElementById(idCard2).classList.add("taken");
           
             l++;
-            graduation(); 
+            gratulation(); 
             
         } else {
             document.getElementById(idCard1).classList.remove("visible");
@@ -142,10 +142,10 @@ namespace Memory {
     }
 
     
-    function graduation(): void{
+    function gratulation(): void{
     
     if (l == numPairs){
-        alert("Gratualation, du hast gewonnen!")
+        alert("Herzlichen Glückwunsch, du hast alle Obstsorten für den Obstsalat gefunden!")
         
     }
 }

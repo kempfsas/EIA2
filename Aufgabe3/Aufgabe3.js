@@ -39,7 +39,7 @@ var Memory;
                     document.getElementById(idCard1).classList.add("taken");
                     document.getElementById(idCard2).classList.add("taken");
                     l++;
-                    graduation();
+                    gratulation();
                 }
                 else {
                     document.getElementById(idCard1).classList.remove("visible");
@@ -107,9 +107,9 @@ var Memory;
         node.innerHTML += childNodeHTML;
         console.log(childNodeHTML); //Aufruf auf der Konsole
     }
-    function graduation() {
+    function gratulation() {
         if (l == numPairs) {
-            alert("Gratualation, du hast gewonnen!");
+            alert("Herzlichen Gl�ckwunsch, du hast alle Obstsorten f�r den Obstsalat gefunden!");
         }
     }
     /* Hauptprogramm */
