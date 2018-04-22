@@ -14,7 +14,7 @@ var Memory;
     let classCard1;
     let classCard2;
     let counter = 0;
-    let checkRest = cardArray.length;
+    let l = 0;
     window.addEventListener("click", init);
     function init(_event) {
         let target = _event.target;
@@ -38,7 +38,7 @@ var Memory;
                     document.getElementById(idCard2).classList.remove("visible");
                     document.getElementById(idCard1).classList.add("taken");
                     document.getElementById(idCard2).classList.add("taken");
-                    gratulation();
+                    l++;
                 }
                 else {
                     document.getElementById(idCard1).classList.remove("visible");
@@ -47,12 +47,8 @@ var Memory;
                     document.getElementById(idCard2).classList.add("hidden");
                 }
             }, 2000);
+            graduation();
             counter = 0;
-        }
-    }
-    function gratulation() {
-        if (checkRest == 0) {
-            alert("Herzlichen Gl\u00fcckwunsch, du hast gewonnen!");
         }
     }
     //Karten werden alle als hidden angezeigt
@@ -78,12 +74,12 @@ var Memory;
         shuffleCards();
         let childNodeHTML = "";
         childNodeHTML += "<h2>Spielfeld</h2>";
-        childNodeHTML += "<div>";
+        childNodeHTML += "<div >";
         for (let i = 0; i < cardArray.length; i++) {
             childNodeHTML += "<div>";
-            childNodeHTML += "<div id=" + i + " attr=" + i + " class='";
+            childNodeHTML += "<div id = " + i + " attr = " + i + " class = ' ";
             childNodeHTML += cardArray[i] + " " + mixCards(); //Aufruf der Funktion f�r den Status der Karte
-            childNodeHTML += "'>";
+            childNodeHTML += " ' >";
             childNodeHTML += cardArray[i]; //cardArray wird ausgegeben
             childNodeHTML += "</div></div>";
         }
@@ -110,6 +106,11 @@ var Memory;
         childNodeHTML += "</div>";
         node.innerHTML += childNodeHTML;
         console.log(childNodeHTML); //Aufruf auf der Konsole
+    }
+    function graduation() {
+        if (l == numPairs) {
+            alert("Gratualation, du hast gewonnen!");
+        }
     }
     /* Hauptprogramm */
     function main() {

@@ -17,7 +17,7 @@ namespace Memory {
     let classCard2: string;
 
     let counter: number = 0;
-    let checkRest: number  = cardArray.length;
+    let l: number = 0;
 
     window.addEventListener("click", init);
 
@@ -46,7 +46,7 @@ namespace Memory {
             document.getElementById(idCard1).classList.add("taken");
             document.getElementById(idCard2).classList.add("taken");
           
-            gratulation();
+            l++;
             
         } else {
             document.getElementById(idCard1).classList.remove("visible");
@@ -57,17 +57,15 @@ namespace Memory {
         }
     }, 2000);
     
+     graduation();       
+            
     counter = 0;
     
     }
         
 }
 
-    function gratulation(): void {
-    if (checkRest == 0) {
-        alert("Herzlichen Gl\u00fcckwunsch, du hast gewonnen!");    
-    }   
-}
+
     
     
     
@@ -103,12 +101,12 @@ namespace Memory {
         shuffleCards();
         let childNodeHTML: string = "";
         childNodeHTML += "<h2>Spielfeld</h2>";
-        childNodeHTML += "<div>";
+        childNodeHTML += "<div >";
         for (let i: number = 0; i < cardArray.length; i++) { //Schleife erstellen, i=0, muss kleiner als die cardArray Länge sein und wird hochgezählt
             childNodeHTML += "<div>";
-            childNodeHTML += "<div id=" + i + " attr=" + i + " class='";
+            childNodeHTML += "<div id = " + i + " attr = " + i + " class = ' ";
             childNodeHTML += cardArray[i] + " " + mixCards(); //Aufruf der Funktion für den Status der Karte
-            childNodeHTML += "'>";
+            childNodeHTML += " ' >";
             childNodeHTML += cardArray[i]; //cardArray wird ausgegeben
             childNodeHTML += "</div></div>";
         }
@@ -118,7 +116,7 @@ namespace Memory {
         console.log(childNodeHTML); //Aufruf auf der Konsole
     }
 
-
+    
     /*Spielinformation dynamisch erstellen*/
     function gameInfo(): void {
         let node: any = document.getElementById("Spielinfo");
@@ -142,6 +140,16 @@ namespace Memory {
         console.log(childNodeHTML); //Aufruf auf der Konsole
     }
 
+    
+    function graduation(): void{
+    
+    if (l == numPairs){
+        alert("Gratualation, du hast gewonnen!")
+        
+    }
+}
+    
+    
     
     
     /* Hauptprogramm */

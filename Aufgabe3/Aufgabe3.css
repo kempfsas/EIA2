@@ -37,7 +37,6 @@ h2 {
   height: auto;
   max-width: 78%;
   padding: 20px;
-  box-sizing: border-box;
   margin-left: 20%;
 }
 
@@ -85,7 +84,7 @@ h2 {
 .hidden {
   background-color: #ff6666;
 	text-indent: -99999px;
-	transform: rotateY(180deg);
+	/*transform: rotateY(180deg);*/
 }
 .taken {
   transform: scale(0);
