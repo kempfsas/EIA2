@@ -17,8 +17,7 @@ namespace Memory {
     let classCard2: string;
 
     let counter: number = 0;
-
-
+    let checkRest: number  = cardArray.length;
 
     window.addEventListener("click", init);
 
@@ -46,6 +45,9 @@ namespace Memory {
 
             document.getElementById(idCard1).classList.add("taken");
             document.getElementById(idCard2).classList.add("taken");
+          
+            gratulation();
+            
         } else {
             document.getElementById(idCard1).classList.remove("visible");
             document.getElementById(idCard2).classList.remove("visible");
@@ -61,6 +63,13 @@ namespace Memory {
         
 }
 
+    function gratulation(): void {
+    if (checkRest == 0) {
+        alert("Herzlichen Gl\u00fcckwunsch, du hast gewonnen!");    
+    }   
+}
+    
+    
     
     //Karten werden alle als hidden angezeigt
     function mixCards(): string {

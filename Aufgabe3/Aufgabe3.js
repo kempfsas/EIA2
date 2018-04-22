@@ -14,6 +14,7 @@ var Memory;
     let classCard1;
     let classCard2;
     let counter = 0;
+    let checkRest = cardArray.length;
     window.addEventListener("click", init);
     function init(_event) {
         let target = _event.target;
@@ -37,6 +38,7 @@ var Memory;
                     document.getElementById(idCard2).classList.remove("visible");
                     document.getElementById(idCard1).classList.add("taken");
                     document.getElementById(idCard2).classList.add("taken");
+                    gratulation();
                 }
                 else {
                     document.getElementById(idCard1).classList.remove("visible");
@@ -46,6 +48,11 @@ var Memory;
                 }
             }, 2000);
             counter = 0;
+        }
+    }
+    function gratulation() {
+        if (checkRest == 0) {
+            alert("Herzlichen Gl\u00fcckwunsch, du hast gewonnen!");
         }
     }
     //Karten werden alle als hidden angezeigt
