@@ -15,7 +15,7 @@ var Memory;
     let classCard2;
     let counter = 0;
     let l = 0;
-    window.addEventListener("click", init);
+    document.addEventListener("click", init);
     function init(_event) {
         let target = _event.target;
         //console.log(_event);
@@ -39,6 +39,7 @@ var Memory;
                     document.getElementById(idCard1).classList.add("taken");
                     document.getElementById(idCard2).classList.add("taken");
                     l++;
+                    graduation();
                 }
                 else {
                     document.getElementById(idCard1).classList.remove("visible");
@@ -47,7 +48,6 @@ var Memory;
                     document.getElementById(idCard2).classList.add("hidden");
                 }
             }, 2000);
-            graduation();
             counter = 0;
         }
     }

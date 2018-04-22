@@ -19,7 +19,7 @@ namespace Memory {
     let counter: number = 0;
     let l: number = 0;
 
-    window.addEventListener("click", init);
+    document.addEventListener("click", init);
 
     function init(_event: Event): void {
         let target: HTMLDivElement = <HTMLDivElement>_event.target;
@@ -47,6 +47,7 @@ namespace Memory {
             document.getElementById(idCard2).classList.add("taken");
           
             l++;
+            graduation(); 
             
         } else {
             document.getElementById(idCard1).classList.remove("visible");
@@ -57,7 +58,7 @@ namespace Memory {
         }
     }, 2000);
     
-     graduation();       
+           
             
     counter = 0;
     
