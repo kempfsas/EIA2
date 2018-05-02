@@ -32,6 +32,7 @@ var Aufgabe4;
         Aufgabe4.studiHomoAssoc[matrikel] = studi;
         // nur um das auch noch zu zeigen...
         Aufgabe4.studiSimpleArray.push(studi);
+        console.log(Aufgabe4.studiSimpleArray);
     }
     function refresh(_event) {
         let output = document.getElementsByTagName("textarea")[0];
@@ -45,11 +46,47 @@ var Aufgabe4;
             output.value += line + "\n";
         }
     }
+    /*function search(_event: Event): void {
+    let n: number = 0;
+    let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[1];
+    let mtrNumb: HTMLInputElement = <HTMLInputElement>document.getElementById("search");
+    output.value = "";
+
+    for (let matrikel in studiHomoAssoc) {
+        let studi: Studi = studiHomoAssoc[matrikel];
+        let line: string = matrikel + ": ";
+        let lengthstudiHomoAssoc: number = studiSimpleArray.length;
+        console.log("Zahl " + studiSimpleArray.length)
+
+
+        if (mtrNumb.value == studi.matrikel.toString()) {
+
+            line += studi.name + ", " + studi.firstname + ", " + studi.age + " Jahre ";
+            line += studi.gender ? "(M)" : "(F)";
+            output.value += line + "\n";
+
+
+
+        } else if ((lengthstudiHomoAssoc - 1) == n) {
+            let info: string = "kein Student vorhanden";
+            output.value += info + "\n";
+            n = 0;
+
+        }
+
+        else {
+            n++;
+        }
+        console.log("Zählvariable: " + n)
+        console.log("Abbruch:" + lengthstudiHomoAssoc)
+    }
+}
+*/
     function search(_event) {
         let output = document.getElementsByTagName("textarea")[1];
         output.value = "";
         let inputs = document.getElementsByTagName("input");
-        let matrikel = inputs[6].value;
+        let matrikel = inputs[2].value;
         console.log(matrikel);
         let studi = Aufgabe4.studiHomoAssoc[matrikel];
         console.log(studi);
