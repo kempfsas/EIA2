@@ -52,6 +52,7 @@ namespace Aufgabe4 {
             output.value += line + "\n";
         }        
        }
+   
     
 
         function search(_event: Event): void {
