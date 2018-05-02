@@ -53,43 +53,6 @@ namespace Aufgabe4 {
         }        
        }
     
-    
-        /*function search(_event: Event): void {
-        let n: number = 0;
-        let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[1];
-        let mtrNumb: HTMLInputElement = <HTMLInputElement>document.getElementById("search");
-        output.value = "";
-
-        for (let matrikel in studiHomoAssoc) {
-            let studi: Studi = studiHomoAssoc[matrikel];
-            let line: string = matrikel + ": ";
-            let lengthstudiHomoAssoc: number = studiSimpleArray.length;
-            console.log("Zahl " + studiSimpleArray.length)
-
-
-            if (mtrNumb.value == studi.matrikel.toString()) {
-
-                line += studi.name + ", " + studi.firstname + ", " + studi.age + " Jahre ";
-                line += studi.gender ? "(M)" : "(F)";
-                output.value += line + "\n";
-
-
-
-            } else if ((lengthstudiHomoAssoc - 1) == n) {             
-                let info: string = "kein Student vorhanden";
-                output.value += info + "\n";
-                n = 0;
-
-            }
-
-            else {
-                n++;
-            }
-            console.log("Zählvariable: " + n)
-            console.log("Abbruch:" + lengthstudiHomoAssoc)
-        }
-    }
-    */
 
         function search(_event: Event): void {
             let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[1];
