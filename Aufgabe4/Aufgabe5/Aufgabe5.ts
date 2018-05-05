@@ -59,6 +59,7 @@ namespace Aufgabe5 {
             if ( counter == 2 ) {
 
                 //Es werden keine Klicks auf der Karte mehr angenommen
+                //d.h. man kann die Karte nur einmal anklicken
                 nehmeKlicksAn = false;
 
                 //Counter wird auf 0 gesetzt
@@ -80,12 +81,13 @@ namespace Aufgabe5 {
                         //Es werden wieder Klicks angenommen
                         nehmeKlicksAn = true;
 
-                        //Wenn keine Karte mehr mit der Klasse hidden gefunden wurde ist das Spiel vorbei und die Gratulationsbox erscheint
+                        //Wenn keine Karte mehr mit der Klasse hidden gefunden wurde ist das Spiel vorbei 
+                        //und das Pop-up für die Gratulation zum Gewinn plopt auf
                         if ( document.getElementsByClassName( "hidden" ).length == 0 ) {
-                            alert( "Glückwunsch, du hast gewonnen!" )
+                            alert( "Herzlichen Glückwunsch, du hast das Spiel gewonnen!" )
                         }
 
-                        //Die Karten werden nach 2 sec. von der Spielfläche entfernt
+                        //Das gefundene Kartenpaar wird nach 2 sec. von der Spielfläche entfernt
                     }, 2000 );
 
 
@@ -122,11 +124,12 @@ namespace Aufgabe5 {
     //Funktion erstellen, damit alle Karten umgedreht sind beim Spielbeginn
     export function randomState(): string {
 
-        //Alle Karten sind umgedreht
+        //Alle Karten sind zu Beginn des Spiels umgedreht
         return "hidden";
     }
 
-    //Karten mischen -> Shuffle Funktion (Karten sollen durchgemischt werden, es sollen nicht immer die selben Karten auf dem Spielfeld erscheinen)
+    //Karten mischen -> Shuffle Funktion (Karten sollen durchgemischt werden, 
+    //damit nicht immer die selben Karten auf dem Spielfeld sind
     function shuffleCards(): void {
 
 
@@ -181,7 +184,7 @@ namespace Aufgabe5 {
 
             card.textContent = cardArray[i];
             
-            //CSS wird definiert
+            //CSS wird mit card.style definiert
             card.style.backgroundColor = currentCardDeck.color;
             card.style.fontFamily = currentCardDeck.font;
             card.style.fontSize = currentCardDeck.size + "px";
@@ -301,16 +304,16 @@ namespace Aufgabe5 {
 
         
         //Wenn beim Kartendeck nichts ausgewählt wird, erscheint automatisch das Kartendeck "animals"
-        if (currentCardDeck == undefined)
+        if (currentCardDeck == undefined) //wenn kein Kartendeck definiert ist
             currentCardDeck = decks["animals"];
         
         //Karten werden erzeugt
         populateCardArray(currentCardDeck.content);
 
-        //Spielbrett erzeugen 
+        //Spielfeld wird erzeugt
         createGame();
 
-        //Spielerinfo erzeugen
+        //Spielinfo wird erzeugt
         playerInfo();
         
         //Starteinstellung wird nach der Einstellung gelöscht
@@ -326,7 +329,7 @@ namespace Aufgabe5 {
         numPairs = value;
     }
 
-    //Karten werden hinzugefügt
+    //Karten werden durch die Funktion erstellt
     
     function populateCardArray(karten: string[]) {
         
@@ -357,12 +360,12 @@ namespace Aufgabe5 {
             kartenPaareElement.value = maxWert.toString()
         }
 
-        //Update des HTML (Zahl neben dem Slider ändert sich)
+        //Update des HTML (Zahl neben dem Slider ändert sich --> Slider wird nach oben gezählt)
         
         document.getElementById("kartenpaare-label").innerText = kartenPaareElement.value;
     }
     
-    //Spieleranzahl und Spielername
+    //Spieleranzahl und Spielername werden erstellt
     export function bearbeiteSpielerZahlKlick(element: HTMLInputElement) {
         
         //parseInt = String wird zu einer ganzen Zahl umgewandelt

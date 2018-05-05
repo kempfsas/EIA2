@@ -5,7 +5,7 @@ var Aufgabe5;
         Aufgabe5.decks["animals"] = {
             name: "animals",
             content: ["Panda", "Koala", "L�we", "Delfin", "Hase", "B�r", "Katze", "Hund", "Wal", "Kaninchen"],
-            color: "#99ccff",
+            color: "#e184ca",
             font: "Arial",
             size: "125%",
             textColor: "#001a33"
@@ -13,10 +13,10 @@ var Aufgabe5;
         Aufgabe5.decks["fruits"] = {
             name: "fruits",
             content: ["Apfel", "Birne", "Banane", "Ananas", "Mango", "Pfirsich", "Papaya", "Orange", "Traube", "Kiwi", "Melone", "Kirsche"],
-            color: "#ff6666",
+            color: "#ff99ff",
             font: "Times New Roman",
             size: "115%",
-            textColor: "white"
+            textColor: "#330033"
         };
         Aufgabe5.decks["veggies"] = {
             name: "veggies",
