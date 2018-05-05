@@ -38,6 +38,7 @@ var Aufgabe5;
             //Counter ist gleich Zwei
             if (counter == 2) {
                 //Es werden keine Klicks auf der Karte mehr angenommen
+                //d.h. man kann die Karte nur einmal anklicken
                 nehmeKlicksAn = false;
                 //Counter wird auf 0 gesetzt
                 counter = 0;
@@ -52,11 +53,12 @@ var Aufgabe5;
                         openCards = [];
                         //Es werden wieder Klicks angenommen
                         nehmeKlicksAn = true;
-                        //Wenn keine Karte mehr mit der Klasse hidden gefunden wurde ist das Spiel vorbei und die Gratulationsbox erscheint
+                        //Wenn keine Karte mehr mit der Klasse hidden gefunden wurde ist das Spiel vorbei 
+                        //und das Pop-up f�r die Gratulation zum Gewinn plopt auf
                         if (document.getElementsByClassName("hidden").length == 0) {
-                            alert("Gl�ckwunsch, du hast gewonnen!");
+                            alert("Herzlichen Gl�ckwunsch, du hast das Spiel gewonnen!");
                         }
-                        //Die Karten werden nach 2 sec. von der Spielfl�che entfernt
+                        //Das gefundene Kartenpaar wird nach 2 sec. von der Spielfl�che entfernt
                     }, 2000);
                 }
                 else {
@@ -77,11 +79,12 @@ var Aufgabe5;
     }
     //Funktion erstellen, damit alle Karten umgedreht sind beim Spielbeginn
     function randomState() {
-        //Alle Karten sind umgedreht
+        //Alle Karten sind zu Beginn des Spiels umgedreht
         return "hidden";
     }
     Aufgabe5.randomState = randomState;
-    //Karten mischen -> Shuffle Funktion (Karten sollen durchgemischt werden, es sollen nicht immer die selben Karten auf dem Spielfeld erscheinen)
+    //Karten mischen -> Shuffle Funktion (Karten sollen durchgemischt werden, 
+    //damit nicht immer die selben Karten auf dem Spielfeld sind
     function shuffleCards() {
         //Variable i wird definiert, sie ist so gro� wie die L�nge des cardArrays
         let i = cardArray.length;
@@ -118,7 +121,7 @@ var Aufgabe5;
             card.classList.add(cardArray[i]);
             card.classList.add(randomState());
             card.textContent = cardArray[i];
-            //CSS wird definiert
+            //CSS wird mit card.style definiert
             card.style.backgroundColor = currentCardDeck.color;
             card.style.fontFamily = currentCardDeck.font;
             card.style.fontSize = currentCardDeck.size + "px";
@@ -203,9 +206,9 @@ var Aufgabe5;
             currentCardDeck = Aufgabe5.decks["animals"];
         //Karten werden erzeugt
         populateCardArray(currentCardDeck.content);
-        //Spielbrett erzeugen 
+        //Spielfeld wird erzeugt
         createGame();
-        //Spielerinfo erzeugen
+        //Spielinfo wird erzeugt
         playerInfo();
         //Starteinstellung wird nach der Einstellung gel�scht
         document.getElementById("starteinstellungen").remove();
@@ -217,7 +220,7 @@ var Aufgabe5;
         Aufgabe5.numPairs = value;
     }
     Aufgabe5.onInputEvent = onInputEvent;
-    //Karten werden hinzugef�gt
+    //Karten werden durch die Funktion erstellt
     function populateCardArray(karten) {
         //Kartenpaare werden erzeugt
         for (let i = 0; i < Aufgabe5.numPairs; i++) {
@@ -240,10 +243,10 @@ var Aufgabe5;
         if (maxWert < momentanerWert) {
             kartenPaareElement.value = maxWert.toString();
         }
-        //Update des HTML (Zahl neben dem Slider �ndert sich)
+        //Update des HTML (Zahl neben dem Slider �ndert sich --> Slider wird nach oben gez�hlt)
         document.getElementById("kartenpaare-label").innerText = kartenPaareElement.value;
     }
-    //Spieleranzahl und Spielername
+    //Spieleranzahl und Spielername werden erstellt
     function bearbeiteSpielerZahlKlick(element) {
         //parseInt = String wird zu einer ganzen Zahl umgewandelt
         let spielerZahl = parseInt(element.value);
