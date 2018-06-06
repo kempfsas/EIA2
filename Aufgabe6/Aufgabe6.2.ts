@@ -92,23 +92,23 @@ namespace Aufgabe6 {
 
 
 
-    function search(_event: Event): void {
-        let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[1];
-        output.value = "";
-        let inputs: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
-        let matrikel: string = inputs[2].value;
-        console.log(matrikel);
-        let studi: Studi = studiHomoAssoc[matrikel];
-        console.log(studi);
-        if (typeof studi === "undefined") {
-            output.value = "No student data found.";
-        } else {
-            let line: string = matrikel + ": ";
-            line += studi.name + ", " + studi.firstname + ", " + studi.age + " Jahre " + ", " + studi.course;
-            line += studi.gender ? ", (M)" : ", (F)";
-            output.value += line + "\n";
-        }
-    }
+ //   function search(_event: Event): void {
+ //       let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[1];
+ //      output.value = "";
+  //      let inputs: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
+  //      let matrikel: string = inputs[2].value;
+  //      console.log(matrikel);
+  //      let studi: Studi = studiHomoAssoc[matrikel];
+  //      console.log(studi);
+   //     if (typeof studi === "undefined") {
+   //         output.value = "No student data found.";
+   //     } else {
+   //         let line: string = matrikel + ": ";
+   //         line += studi.name + ", " + studi.firstname + ", " + studi.age + " Jahre " + ", " + studi.course;
+   //         line += studi.gender ? ", (M)" : ", (F)";
+    //        output.value += line + "\n";
+   //     }
+   // }
     // zusÃ¤tzliche Konsolenausgaben zur Demonstration
     console.group("Simple Array");
     console.log(studiSimpleArray);
@@ -118,6 +118,14 @@ namespace Aufgabe6 {
     console.log(studiHomoAssoc);
     console.groupEnd();
 
+    function search(_event: Event): void {
+        let inputs: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
+        let matrikel: string = inputs[6].value;
+        
+        console.log(matrikel);
+        
+        sendDataToHost("searchStudent", matrikel);
+        }
 
     function sendDataToHost(method: string, data: any = undefined) {
         console.log("Sending data to host..");
@@ -136,6 +144,27 @@ namespace Aufgabe6 {
                 refresh();
             }
         }
+        else if (method == "searchStudent") {
+            xhr.onload = function() {
+                if (xhr.responseText == "undefined") {
+                    alert("Für diese Matrikel wurde kein Student gefunden.");
+                    return;
+                    }
+                
+                let student = JSON.parse(xhr.responseText);
+                
+                let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
+                
+                output.value = "";
+                
+                let line: string = data + ": ";
+                line += student.name + ", " + student.firstname + ", " + student.age + " Jahre ";
+                line += student.gender ? ", (M)" : ", (F)";
+                line += student.studiengang + ": ";
+                output.value += line + "\n";
+                }
+            }
+        
         xhr.send();
     }
 
