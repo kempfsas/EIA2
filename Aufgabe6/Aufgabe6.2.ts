@@ -144,7 +144,7 @@ namespace Aufgabe6 {
                 refresh();
             }
         }
-        else if (method == "searchStudent") {
+        else if (method == "searchStudent") { 
             xhr.onload = function() {
                 if (xhr.responseText == "undefined") {
                     alert("Für diese Matrikel wurde kein Student gefunden.");
