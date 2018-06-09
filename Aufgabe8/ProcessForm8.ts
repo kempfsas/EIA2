@@ -1,7 +1,7 @@
 namespace Aufgabe8 {
     window.addEventListener("load", init);
 
-    let address: string = "https://eia22node257180.herokuapp.com/";
+    let address: string = "https://eia2node257180.herokuapp.com/";
 
     let inputs: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
 
