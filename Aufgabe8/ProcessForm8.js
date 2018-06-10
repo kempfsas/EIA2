@@ -12,9 +12,7 @@ var Aufgabe8;
         refreshButton.addEventListener("click", refresh);
         searchButton.addEventListener("click", search);
     }
-    Aufgabe8.init = init;
     function insert(_event) {
-        let inputs = document.getElementsByTagName("input");
         let genderButton = document.getElementById("male");
         let matrikel = inputs[2].value;
         let course = document.getElementById("options");
@@ -23,18 +21,19 @@ var Aufgabe8;
             name: inputs[0].value,
             firstname: inputs[1].value,
             matrikel: parseInt(matrikel),
-            course: inputs[3].value,
+            course: document.getElementsByTagName("select").item(0).value,
             age: parseInt(inputs[4].value),
             gender: genderButton.checked
         };
-        console.log(studi);
-        console.log(studi.age);
-        console.log(studi["age"]);
-        console.log(studi.course);
+        //console.log(studi);
+        //console.log(studi.age);
+        //console.log(studi["age"]);
+        //console.log(studi.course);
         let stringifyJSON = JSON.stringify(studi);
         console.log(stringifyJSON);
         let xhr = new XMLHttpRequest();
         xhr.open("GET", address + "?command=insert&data=" + stringifyJSON, true);
+        xhr.addEventListener("readystatechange", handleChangeInsert);
         xhr.send();
         // Datensatz im assoziativen Array unter der Matrikelnummer speichern
         //studiHomoAssoc[matrikel] = studi;
@@ -51,18 +50,7 @@ var Aufgabe8;
     function refresh(_event) {
         let xhr = new XMLHttpRequest();
         xhr.open("GET", address + "?command=findAll", true);
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == XMLHttpRequest.DONE) {
-                let studis = JSON.parse(xhr.responseText);
-                console.log(studis);
-                let answer = "";
-                for (let i = 0; i < studis.length; i++) {
-                    answer += "Name: " + studis[i].name + ", " + studis[i].firstname + ", Matrikel: " + studis[i].matrikel + ", "
-                        + studis[i].course + ", Mann: " + studis[i].gender + ", Alter: " + studis[i].age + "\n";
-                }
-                document.getElementsByTagName("textarea")[0].value = answer;
-            }
-        };
+        xhr.addEventListener("readystatechange", handleChangeRefresh);
         xhr.send();
     }
     function handleChangeRefresh(_event) {
@@ -77,15 +65,7 @@ var Aufgabe8;
         let matrikel = inputs[6].value;
         let xhr = new XMLHttpRequest();
         xhr.open("GET", address + "?command=find&data=" + matrikel, true);
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == XMLHttpRequest.DONE) {
-                let studi = JSON.parse(xhr.responseText);
-                console.log(studi);
-                let answer = "Name: " + studi.name + ", " + studi.firstname + ", Matrikel: " + studi.matrikel + ", "
-                    + studi.course + ", Mann: " + studi.gender + ", Alter: " + studi.age + "\n";
-                document.getElementsByTagName("textarea")[1].value = answer;
-            }
-        };
+        xhr.addEventListener("readystatechange", handleChangeSearch);
         xhr.send();
     }
     function handleChangeSearch(_event) {

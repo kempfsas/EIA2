@@ -1,11 +1,12 @@
 namespace Aufgabe8 {
+    
     window.addEventListener("load", init);
 
     let address: string = "https://eia2node257180.herokuapp.com/";
 
     let inputs: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
 
-    export function init(_event: Event): void {
+    function init(_event: Event): void {
         console.log("Init");
         let insertButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("insert");
         let refreshButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("refresh");
@@ -17,7 +18,6 @@ namespace Aufgabe8 {
 
 
     function insert(_event: Event): void {
-        let inputs: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
         let genderButton: HTMLInputElement = <HTMLInputElement>document.getElementById("male");
         let matrikel: string = inputs[2].value;
         let course: HTMLSelectElement = <HTMLSelectElement>document.getElementById("options");
@@ -26,21 +26,22 @@ namespace Aufgabe8 {
             name: inputs[0].value,
             firstname: inputs[1].value,
             matrikel: parseInt(matrikel),
-            course: inputs[3].value,
+            course: document.getElementsByTagName("select").item(0).value,
             age: parseInt(inputs[4].value),
             gender: genderButton.checked
         };
 
-        console.log(studi);
-        console.log(studi.age);
-        console.log(studi["age"]);
-        console.log(studi.course);
+        //console.log(studi);
+        //console.log(studi.age);
+        //console.log(studi["age"]);
+        //console.log(studi.course);
 
         let stringifyJSON: string = JSON.stringify(studi);
         console.log(stringifyJSON);
 
         let xhr: XMLHttpRequest = new XMLHttpRequest();
         xhr.open("GET", address + "?command=insert&data=" + stringifyJSON, true);
+        xhr.addEventListener("readystatechange", handleChangeInsert);
         xhr.send();
 
 
@@ -64,22 +65,9 @@ namespace Aufgabe8 {
     function refresh(_event: Event): void {
         let xhr: XMLHttpRequest = new XMLHttpRequest();
         xhr.open("GET", address + "?command=findAll", true);
-        xhr.onreadystatechange = function(): void {
-            if (xhr.readyState == XMLHttpRequest.DONE) {
 
-                let studis: Studi[] = JSON.parse(xhr.responseText);
-
-                console.log(studis);
-                let answer: string = "";
-
-                for (let i = 0; i < studis.length; i++) {
-                    answer += "Name: " + studis[i].name + ", " + studis[i].firstname + ", Matrikel: " + studis[i].matrikel + ", "
-                        + studis[i].course + ", Mann: " + studis[i].gender + ", Alter: " + studis[i].age + "\n";
-                }
-
-                document.getElementsByTagName("textarea")[0].value = answer;
-            }
-        }
+        xhr.addEventListener("readystatechange", handleChangeRefresh);
+        
         xhr.send();
     }
 
@@ -98,18 +86,9 @@ namespace Aufgabe8 {
 
         let xhr: XMLHttpRequest = new XMLHttpRequest();
         xhr.open( "GET", address + "?command=find&data=" + matrikel, true );
-        xhr.onreadystatechange = function (): void {
-            if (xhr.readyState == XMLHttpRequest.DONE) {
 
-                let studi: Studi = JSON.parse(xhr.responseText);
-                console.log(studi);
-
-                let answer: string = "Name: " + studi.name + ", " + studi.firstname + ", Matrikel: " + studi.matrikel + ", "
-                        + studi.course + ", Mann: " + studi.gender + ", Alter: " + studi.age + "\n";
-
-                document.getElementsByTagName("textarea")[1].value = answer;
-            }
-        }
+         xhr.addEventListener("readystatechange", handleChangeSearch);
+         
         xhr.send();
 }
 
