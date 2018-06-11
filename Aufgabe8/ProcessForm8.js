@@ -17,16 +17,18 @@ var Aufgabe8;
         let matrikel = inputs[2].value;
         let course = document.getElementById("options");
         let studi;
+        let tempCourse = document.getElementById("options");
         studi = {
             name: inputs[0].value,
             firstname: inputs[1].value,
             matrikel: parseInt(matrikel),
-            //course: document.getElementsByTagName("select").item(0).value,
-            course: "",
+            course: tempCourse.value,
+            //course: "",
             age: parseInt(inputs[4].value),
             gender: genderButton.checked
         };
-        console.log(document.getElementsByTagName("select"));
+        //console.log(document.getElementById("options").value);
+        //console.log(parseInt(inputs[3].value));
         //console.log(studi);
         //console.log(studi.age);
         //console.log(studi["age"]);
