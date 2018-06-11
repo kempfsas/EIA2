@@ -21,10 +21,12 @@ var Aufgabe8;
             name: inputs[0].value,
             firstname: inputs[1].value,
             matrikel: parseInt(matrikel),
-            course: document.getElementsByTagName("select").item(0).value,
+            //course: document.getElementsByTagName("select").item(0).value,
+            course: "",
             age: parseInt(inputs[4].value),
             gender: genderButton.checked
         };
+        console.log(document.getElementsByTagName("select"));
         //console.log(studi);
         //console.log(studi.age);
         //console.log(studi["age"]);
