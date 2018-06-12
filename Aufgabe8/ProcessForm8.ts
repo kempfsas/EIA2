@@ -29,7 +29,7 @@ namespace Aufgabe8 {
             matrikel: parseInt(matrikel),
             course: tempCourse.value,
             //course: "",
-            age: parseInt(inputs[4].value),
+            age: parseInt(inputs[3].value),
             gender: genderButton.checked
         };
 
