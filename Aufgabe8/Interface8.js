@@ -1,8 +1,5 @@
-var Aufgabe8;
-(function (Aufgabe8) {
-    // Simples Array zum Speichern der Studi-Datens�tze (nur zur Demonstration)
-    Aufgabe8.studiSimpleArray = [];
-    // Homogenes assoziatives Array zur Speicherung einer Person unter der Matrikelnummer
-    Aufgabe8.studiHomoAssoc = {};
-})(Aufgabe8 || (Aufgabe8 = {}));
+// Simples Array zum Speichern der Studi-Datens�tze (nur zur Demonstration)
+//export let studiSimpleArray: Studi[] = [];
+// Homogenes assoziatives Array zur Speicherung einer Person unter der Matrikelnummer
+let studiHomoAssoc = {};
 //# sourceMappingURL=Interface8.js.map
