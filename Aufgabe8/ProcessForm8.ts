@@ -67,7 +67,7 @@ namespace Aufgabe8 {
     }
 
 
-    function refresh(_event: Event): void {
+    /*function refresh(_event: Event): void {
         let xhr: XMLHttpRequest = new XMLHttpRequest();
         xhr.open( "GET", address + "?command=findAll", true);
         xhr.onreadystatechange = function(): void {
@@ -88,18 +88,18 @@ namespace Aufgabe8 {
                 }
             }
         xhr.send();
-        }
+        }*/
     
     
     
-    /*function refresh(_event: Event): void {
+    function refresh(_event: Event): void {
         let xhr: XMLHttpRequest = new XMLHttpRequest();
         xhr.open("GET", address + "?command=findAll", true);
 
         xhr.addEventListener("readystatechange", handleChangeRefresh);
         
         xhr.send();
-    }*/
+    }
     
 
     function handleChangeRefresh(_event: ProgressEvent): void {

@@ -51,31 +51,34 @@ var Aufgabe8;
             alert(xhr.response);
         }
     }
+    /*function refresh(_event: Event): void {
+        let xhr: XMLHttpRequest = new XMLHttpRequest();
+        xhr.open( "GET", address + "?command=findAll", true);
+        xhr.onreadystatechange = function(): void {
+            
+            if (xhr.readyState == XMLHttpRequest.DONE) {
+                let studis: Studi[] = JSON.parse(xhr.responseText);
+                
+                console.log(studis);
+                let answer : string = "";
+                
+                for (let i = 0; i < studis.length; i++) {
+                    answer += "Name: " + studis[i].name + "," + studis[i].firstname + "," + "Matrikel: " + studis[i].matrikel + ","
+                        + studis[i].course + "," + "Geschlecht: "  + studis[i].gender + "," + "Alter: " + studis[i].age + "\n";
+                    }
+                
+                document.getElementsByTagName("textarea")[0].value = answer;
+                
+                }
+            }
+        xhr.send();
+        }*/
     function refresh(_event) {
         let xhr = new XMLHttpRequest();
         xhr.open("GET", address + "?command=findAll", true);
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == XMLHttpRequest.DONE) {
-                let studis = JSON.parse(xhr.responseText);
-                console.log(studis);
-                let answer = "";
-                for (let i = 0; i < studis.length; i++) {
-                    answer += "Name: " + studis[i].name + "," + studis[i].firstname + "," + "Matrikel: " + studis[i].matrikel + ","
-                        + studis[i].course + "," + "Geschlecht: " + studis[i].gender + "," + "Alter: " + studis[i].age + "\n";
-                }
-                document.getElementsByTagName("textarea")[0].value = answer;
-            }
-        };
+        xhr.addEventListener("readystatechange", handleChangeRefresh);
         xhr.send();
     }
-    /*function refresh(_event: Event): void {
-        let xhr: XMLHttpRequest = new XMLHttpRequest();
-        xhr.open("GET", address + "?command=findAll", true);
-
-        xhr.addEventListener("readystatechange", handleChangeRefresh);
-        
-        xhr.send();
-    }*/
     function handleChangeRefresh(_event) {
         let output = document.getElementsByTagName("textarea")[0];
         output.value = "";
