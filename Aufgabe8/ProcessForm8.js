@@ -75,7 +75,7 @@ var Aufgabe8;
         }*/
     function refresh(_event) {
         let xhr = new XMLHttpRequest();
-        xhr.open("GET", address + "?command=findAll", true);
+        xhr.open("GET", address + "?command=refresh", true);
         xhr.addEventListener("readystatechange", handleChangeRefresh);
         xhr.send();
     }
@@ -90,7 +90,7 @@ var Aufgabe8;
     function search(_event) {
         let matrikel = inputs[6].value;
         let xhr = new XMLHttpRequest();
-        xhr.open("GET", address + "?command=find&data=" + matrikel, true);
+        xhr.open("GET", address + "?command=search&searchFor=" + matrikel, true);
         xhr.addEventListener("readystatechange", handleChangeSearch);
         xhr.send();
     }

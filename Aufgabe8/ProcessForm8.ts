@@ -94,7 +94,7 @@ namespace Aufgabe8 {
     
     function refresh(_event: Event): void {
         let xhr: XMLHttpRequest = new XMLHttpRequest();
-        xhr.open("GET", address + "?command=findAll", true);
+        xhr.open("GET", address + "?command=refresh", true);
 
         xhr.addEventListener("readystatechange", handleChangeRefresh);
         
@@ -116,7 +116,7 @@ namespace Aufgabe8 {
         let matrikel: string = inputs[6].value;
 
         let xhr: XMLHttpRequest = new XMLHttpRequest();
-        xhr.open( "GET", address + "?command=find&data=" + matrikel, true );
+        xhr.open( "GET", address + "?command=search&searchFor=" + matrikel, true );
 
          xhr.addEventListener("readystatechange", handleChangeSearch);
          
