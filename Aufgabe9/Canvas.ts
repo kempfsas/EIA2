@@ -2,12 +2,17 @@ namespace L08_Canvas {
     window.addEventListener("load", init);
     let crc2: CanvasRenderingContext2D;
     let ctx: CanvasRenderingContext2D;
+    let width: number;
+    let height: number;
 
     function init(_event: Event): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
         ctx = canvas.getContext("2d");
         console.log(crc2);
+        
+            width = canvas.width;
+height = canvas.height;
 
         //crc2.fillStyle = "rgba(255,0,0,0.5)";
         //crc2.fillRect(50, 50, 100, 50);
@@ -21,15 +26,24 @@ namespace L08_Canvas {
         drawBottomLine();
         
         //Schatzkiste zeichnen lassen
-        drawChestCover(235, 415);
-        drawChestBottom(215, 460, 63, 50);
+        drawChestCover(750, 600);
+        drawChestBottom(730, 645, 63, 50);
         
         //Seestern zeichnen lassen
-        drawStarfish(120, 550);
+        drawStarfish(375, 715);
+        
+        //Steine zeichnen lassen
+        drawStones(0, 625);
         
         //Seegras zeichnen lassen
-        drawSeeweed(30, 430);
+        drawSeaweed(30, 645);
+        drawSeaweed(55, 650);
+        drawSeaweed(80, 645);
+        //drawSeaweed2(100, 650);
         
+        
+        
+
 
        /* for (let i: number = 0; i < 100; i++) {
             let x: number = Math.random() * crc2.canvas.width;
@@ -42,8 +56,8 @@ namespace L08_Canvas {
         
     //Math.random für Luftblasen
     for ( let i: number = 0; i < 10; i++ ) {
-            let x: number = Math.random() * crc2.canvas.width;
-            let y: number = Math.random() * crc2.canvas.height;
+            let x: number = (730);
+            let y: number = Math.random() * 600;
 
             drawBubbles(x, y, 10);
 }
@@ -121,6 +135,8 @@ namespace L08_Canvas {
         crc2.fillStyle = "rgb(102, 51, 0)";
         crc2.moveTo(_x, _y + 200);
         crc2.fillRect( _x, _y, _width, _height );
+        crc2.stroke();
+        crc2.closePath();
         }
     
         
@@ -202,22 +218,35 @@ namespace L08_Canvas {
     //Funktion für Seestern
       function drawStarfish(_x: number, _y: number ): void {
         crc2.beginPath();
-        crc2.fillStyle = "rgb(255, 165, 0)";    
-        crc2.moveTo(_x, _y - 25);
+        crc2.fillStyle = "rgb(255, 51, 255)"; 
+        crc2.moveTo(_x, _y -25);
+        crc2.lineTo(_x + 20, _y);
+        crc2.lineTo(_x -5, _y +25);   
+        crc2.lineTo(_x +30, _y + 18);
+        crc2.lineTo(_x +50, _y + 40);
+        crc2.lineTo(_x + 50, _y+12);
+        crc2.lineTo(_x +80, _y - 5);
+        crc2.lineTo(_x + 50, _y -8);
+        crc2.lineTo(_x +50, _y -35);
+        crc2.lineTo(_x + 30, _y -12);
+        crc2.lineTo(_x, _y-25);
+        crc2.closePath();
+        crc2.fill();
+        /*crc2.moveTo(_x, _y - 25);
         crc2.lineTo(_x + 25, _y + 15);
         crc2.lineTo(_x - 25, _y + 15);
-        crc2.closePath();
-            
-        crc2.moveTo(_x, _y + 25);
+        crc2.closePath();*/    
+        /*crc2.moveTo(_x, _y + 25);
         crc2.lineTo(_x + 25, _y - 15);
         crc2.lineTo(_x - 25, _y - 15);
-        crc2.closePath();
+        crc2.closePath();*/
         crc2.stroke();
-        crc2.fill();
+        //crc2.fill();
 }
+
     
     //Funktion für Seegras
-      function drawSeeweed(_x: number, _y: number ): void {
+      function drawSeaweed(_x: number, _y: number ): void {
         crc2.beginPath();
         crc2.fillStyle = "rgb(34,139,34)";
         crc2.moveTo( _x, _y);
@@ -229,5 +258,32 @@ namespace L08_Canvas {
         ctx.stroke();
         crc2.fill();   
         }
+
+    
+    
+    //Funktion für Steine
+      function drawStones(_x : number, _y: number): void {
+        crc2.beginPath();
+        crc2.fillStyle = "rgb(140, 140, 140)";
+        crc2.moveTo(_x, _y);
+        crc2.lineTo(_x, _y - 40);
+        crc2.lineTo(_x + 30, _y -50);
+        crc2.lineTo(_x + 50, _y -70);
+        crc2.lineTo(_x + 70, _y -80);
+        crc2.lineTo(_x +100, _y -80);
+        crc2.lineTo(_x +120, _y -100);
+        crc2.lineTo(_x + 150, _y -110);
+        crc2.lineTo(_x + 200, _y -90);
+        crc2.lineTo(_x +200, _y -60);
+        crc2.lineTo(_x +250, _y - 30);
+        crc2.lineTo(_x +300, _y -20);
+        crc2.lineTo(_x +325, _y +10);
+        crc2.lineTo(_x +175, _y +20);
+        crc2.lineTo(_x, _y + 15);
+        crc2.lineTo(_x, _y);
+        crc2.closePath();
+        crc2.stroke();
+        crc2.fill();
+      }
     
 }
