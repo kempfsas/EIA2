@@ -14,6 +14,8 @@ var L08_Canvas;
         //drawDavidStar(100, 200);
         //Hintergrund zeichnen lassen
         drawBackground(260);
+        //Boden zeichnen lassen
+        drawBottomLine();
         //Schatzkiste zeichnen lassen
         drawChestCover(235, 415);
         drawChestBottom(215, 460, 63, 50);
@@ -61,8 +63,20 @@ var L08_Canvas;
     function drawBackground(_sandHeight) {
         crc2.fillStyle = "rgb(77, 121, 255)";
         crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
+    }
+    //Funktion f�r Boden
+    function drawBottomLine() {
+        crc2.beginPath();
         crc2.fillStyle = "rgb(179, 134, 0)";
-        crc2.fillRect(0, crc2.canvas.height - 175, crc2.canvas.width, crc2.canvas.height);
+        crc2.moveTo(0, 625);
+        crc2.quadraticCurveTo(30, 650, 500, 600);
+        crc2.quadraticCurveTo(675, 600, 1000, 650);
+        crc2.quadraticCurveTo(1000, 800, 1000, 800);
+        crc2.quadraticCurveTo(1000, 800, 0, 800);
+        crc2.quadraticCurveTo(0, 675, 0, 675);
+        crc2.closePath();
+        crc2.stroke();
+        crc2.fill();
     }
     //Funktionen f�r Schatzkiste
     function drawChestCover(_x, _y) {
