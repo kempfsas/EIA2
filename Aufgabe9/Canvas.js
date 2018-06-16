@@ -18,31 +18,31 @@ var L08_Canvas;
         //drawDavidStar(100, 200);
         //Hintergrund zeichnen lassen
         drawBackground(260);
+        drawWave();
         //Boden zeichnen lassen
         drawBottomLine();
         //Schatzkiste zeichnen lassen
-        drawChestCover(750, 600);
-        drawChestBottom(730, 645, 63, 50);
+        drawChestCover(750, 575);
+        drawChestBottom(700, 615, 90, 65);
         //Seestern zeichnen lassen
-        drawStarfish(375, 715);
+        drawStarfish(550, 750);
+        drawStarfish(325, 675);
+        //drawTurtle(300, 400,30);
         //Steine zeichnen lassen
         drawStones(0, 625);
         //Seegras zeichnen lassen
         drawSeaweed(30, 645);
         drawSeaweed(55, 650);
         drawSeaweed(80, 645);
-        //drawSeaweed2(100, 650);
-        /* for (let i: number = 0; i < 100; i++) {
-             let x: number = Math.random() * crc2.canvas.width;
-             let y: number = Math.random() * crc2.canvas.height;
-             //drawDavidStar(x, y);
-             //drawBubbles(x,y);
-         }
-     } */
+        drawSeaweed(945, 680);
+        drawSeaweed(975, 700);
+        drawSeaweed(955, 725);
+        drawSeaweed(910, 700);
+        drawSeaweed(930, 715);
         //Math.random f�r Luftblasen
         for (let i = 0; i < 10; i++) {
-            let x = (730);
-            let y = Math.random() * 600;
+            let x = (740);
+            let y = Math.random() * 625;
             drawBubbles(x, y, 10);
         }
         //Math.random f�r Fische
@@ -66,12 +66,26 @@ var L08_Canvas;
             let y = Math.random() * crc2.canvas.height;
             drawFish4(x, y);
         }
+        //drawOctopus();
     }
     //Funktionen
     //Funktion f�r Hintergrund
     function drawBackground(_sandHeight) {
         crc2.fillStyle = "rgb(77, 121, 255)";
         crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
+    }
+    //Funktion f�r Welle
+    function drawWave() {
+        crc2.beginPath();
+        crc2.moveTo(0, 50);
+        crc2.quadraticCurveTo(350, 200, 1000, 200);
+        crc2.lineTo(1000, 150);
+        crc2.quadraticCurveTo(550, 150, 400, 0);
+        crc2.lineTo(0, 0);
+        crc2.lineTo(0, 50);
+        crc2.fillStyle = "rgb(128, 159, 255)"; /*'rgb(169, 215, 245)'*/
+        ;
+        crc2.fill();
     }
     //Funktion f�r Boden
     function drawBottomLine() {
@@ -92,30 +106,40 @@ var L08_Canvas;
         ctx.beginPath();
         crc2.fillStyle = "rgb(102, 51, 0)";
         ctx.moveTo(_x, _y);
-        ctx.bezierCurveTo(_x + 60, _y - 20, _x + 60, _y + 40, _x + 40, _y + 50);
-        ctx.stroke();
+        ctx.bezierCurveTo(_x + 80, _y - 40, _x + 80, _y + 60, _x + 60, _y + 70);
         crc2.fill();
         //crc2.lineTo(_x + 140, _y);
         crc2.closePath();
+        ctx.stroke();
     }
     function drawChestBottom(_x, _y, _width, _height) {
         //crc2.stroke();
         ctx.beginPath();
         crc2.fillStyle = "rgb(102, 51, 0)";
-        crc2.moveTo(_x, _y + 200);
-        crc2.fillRect(_x, _y, _width, _height);
-        crc2.stroke();
+        crc2.moveTo(_x + 40, _y);
+        crc2.fillRect(_x + 25, _y + 25, _width, _height);
         crc2.closePath();
+        crc2.stroke();
     }
     //Funktion f�r Luftblasen
     function drawBubbles(_x, _y, _radius) {
         ctx.beginPath();
         crc2.fillStyle = "rgb(230, 255, 247)";
         ctx.arc(_x, _y, _radius, 0, 2 * Math.PI);
-        //crc2.closePath();
-        //crc2.stroke();
+        crc2.closePath();
+        crc2.stroke();
         crc2.fill();
     }
+    //Funktion f�r Schildkr�te
+    /* function drawTurtle(_x: number, _y: number, _radius: number): void {
+         ctx.beginPath();
+         crc2.fillStyle = "rgb(230, 255, 247)";
+         ctx.arc(_x+10, _y+5, _radius,0,2*Math.PI);
+         crc2.closePath();
+         crc2.stroke();
+         crc2.fill();
+      
+     }*/
     //Funktionen f�r Fische
     function drawFish1(_x, _y) {
         ctx.beginPath();
@@ -128,7 +152,7 @@ var L08_Canvas;
         crc2.lineTo(_x - 25, _y);
         crc2.lineTo(_x - 20, _y + 5); //hinterer Teil Fisch
         crc2.lineTo(_x, _y);
-        ctx.stroke();
+        crc2.stroke();
         ctx.fill();
         crc2.closePath();
     }
@@ -194,16 +218,7 @@ var L08_Canvas;
         crc2.lineTo(_x, _y - 25);
         crc2.closePath();
         crc2.fill();
-        /*crc2.moveTo(_x, _y - 25);
-        crc2.lineTo(_x + 25, _y + 15);
-        crc2.lineTo(_x - 25, _y + 15);
-        crc2.closePath();*/
-        /*crc2.moveTo(_x, _y + 25);
-        crc2.lineTo(_x + 25, _y - 15);
-        crc2.lineTo(_x - 25, _y - 15);
-        crc2.closePath();*/
         crc2.stroke();
-        //crc2.fill();
     }
     //Funktion f�r Seegras
     function drawSeaweed(_x, _y) {
@@ -241,6 +256,67 @@ var L08_Canvas;
         crc2.closePath();
         crc2.stroke();
         crc2.fill();
+    }
+    //octopus outline
+    function drawOctopus() {
+        crc2.beginPath();
+        crc2.fillStyle = "rgb(166, 77, 255)";
+        crc2.moveTo(400, 90);
+        crc2.bezierCurveTo(350, 90, 220, 150, 200, 250);
+        crc2.quadraticCurveTo(175, 330, 250, 400);
+        crc2.bezierCurveTo(200, 400, 195, 555, 125, 450);
+        crc2.bezierCurveTo(175, 600, 240, 425, 252, 415);
+        crc2.bezierCurveTo(245, 475, 280, 465, 200, 550);
+        crc2.bezierCurveTo(280, 550, 250, 460, 295, 440);
+        crc2.bezierCurveTo(290, 465, 330, 495, 275, 550);
+        crc2.bezierCurveTo(375, 475, 300, 425, 350, 445);
+        crc2.bezierCurveTo(400, 480, 330, 475, 350, 550);
+        crc2.bezierCurveTo(405, 475, 365, 455, 370, 450);
+        crc2.bezierCurveTo(440, 450, 400, 570, 415, 570);
+        crc2.bezierCurveTo(450, 500, 405, 450, 425, 450);
+        crc2.bezierCurveTo(445, 500, 440, 550, 490, 560);
+        crc2.bezierCurveTo(460, 500, 430, 450, 445, 450);
+        crc2.bezierCurveTo(520, 525, 460, 525, 525, 575);
+        crc2.bezierCurveTo(475, 525, 545, 525, 480, 440);
+        crc2.bezierCurveTo(590, 580, 580, 475, 600, 450);
+        crc2.bezierCurveTo(560, 465, 580, 540, 500, 425);
+        crc2.quadraticCurveTo(610, 375, 590, 250);
+        crc2.bezierCurveTo(540, 110, 440, 93, 400, 90);
+        crc2.fill();
+        //crc2.setTransform(2,0,0,1,0,0);
+        crc2.stroke();
+        //crc2.scale(2,2);
+        crc2.closePath();
+        //eyes
+        crc2.beginPath();
+        crc2.arc(300, 225, 25, 0, 2 * Math.PI, false);
+        crc2.fillStyle = 'rgb(255, 255 ,255)';
+        crc2.fill();
+        crc2.stroke();
+        crc2.closePath();
+        crc2.beginPath();
+        crc2.arc(500, 225, 25, 0, 2 * Math.PI, false);
+        crc2.fill();
+        crc2.stroke();
+        crc2.closePath();
+        crc2.beginPath();
+        crc2.arc(300, 235, 15, 0, 2 * Math.PI, true);
+        crc2.fillStyle = 'rgb(1, 1, 1)';
+        crc2.fill();
+        crc2.stroke();
+        crc2.closePath();
+        crc2.beginPath();
+        crc2.arc(500, 235, 15, 0, 2 * Math.PI, true);
+        crc2.fill();
+        crc2.stroke();
+        crc2.closePath();
+        //mouth
+        crc2.beginPath();
+        crc2.arc(420, 300, 100, 0, Math.PI / 2, false);
+        crc2.lineWidth = 5;
+        crc2.lineCap = 'round';
+        crc2.stroke();
+        crc2.closePath();
     }
 })(L08_Canvas || (L08_Canvas = {}));
 //# sourceMappingURL=Canvas.js.map
