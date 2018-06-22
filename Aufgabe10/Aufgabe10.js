@@ -3,8 +3,9 @@ var Aufgabe10;
     window.addEventListener("load", init);
     let fishes = [];
     let bubbles = [];
-    //let starfishes: Starfish[] = [];
+    let starfishes = [];
     let n = 16;
+    let m = 0;
     let imgData;
     //let imgData: ImageData;
     function init(_event) {
@@ -25,6 +26,19 @@ var Aufgabe10;
             bubble.radius = Math.random() * 10;
             bubbles.push(bubble);
         }
+        //Seesterne
+        for (let i = 0; i <= m; i++) {
+            let starfish = new Aufgabe10.Starfish();
+            starfish.x = (325);
+            starfish.y = (675);
+            starfishes.push(starfish);
+        }
+        for (let i = 0; i <= m; i++) {
+            let starfish = new Aufgabe10.Starfish();
+            starfish.x = (550);
+            starfish.y = (750);
+            starfishes.push(starfish);
+        }
         //Fische
         for (let i = 0; i < n; i++) {
             let fish = new Aufgabe10.Fishes();
@@ -35,14 +49,6 @@ var Aufgabe10;
             fish.b = Math.random() * 360;
             fishes.push(fish);
         }
-        //Seesterne
-        /*for (let i: number = 0; i < n; i++) {
-            let starfish: Starfish = new Starfish();
-            starfish.x = Math.random() * crc2.canvas.width;
-            starfish.y = Math.random() * crc2.canvas.height;
-            
-            starfishes.push(starfish);
-            }*/
         //Animation aufrufen
         animate();
     }
@@ -55,23 +61,23 @@ var Aufgabe10;
         drawObjects();
     }
     function moveObjects() {
+        for (let i = 0; i < starfishes.length; i++) {
+            starfishes[i].move();
+        }
         for (let i = 0; i < fishes.length; i++) {
             fishes[i].move();
         }
         for (let i = 0; i < bubbles.length; i++) {
             bubbles[i].move();
         }
-        /*for (let i: number = 0; i < starfishes.length; i++) {
-            starfishes[i].move();
-            }*/
     }
     function drawObjects() {
+        for (let i = 0; i < starfishes.length; i++)
+            starfishes[i].drawStarfish();
         for (let i = 0; i < fishes.length; i++)
             fishes[i].draw();
         for (let i = 0; i < bubbles.length; i++)
             bubbles[i].drawBubble();
-        /*for (let i: number = 0; i < starfishes.length; i++)
-            starfishes[i].drawStarfish();*/
     }
 })(Aufgabe10 || (Aufgabe10 = {}));
 //# sourceMappingURL=Aufgabe10.js.map

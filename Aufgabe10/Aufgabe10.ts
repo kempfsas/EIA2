@@ -4,8 +4,9 @@ namespace Aufgabe10 {
     export let ctx: CanvasRenderingContext2D;
     let fishes: Fishes[] = [];
     let bubbles: Bubbles[] = [];
-    //let starfishes: Starfish[] = [];
+    let starfishes: Starfish[] = [];
     let n: number = 16;
+    let m: number = 0;
     let imgData: ImageData;
     
     //let imgData: ImageData;
@@ -22,6 +23,7 @@ namespace Aufgabe10 {
         imgData = crc2.getImageData( 0, 0, canvas.width, canvas.height ); //Speichern des Canvas als Bild
         console.log(imgData);
 
+        
         //Luftblasen 
         for ( let i: number = 0; i < n; i++ ) {
             let bubble: Bubbles = new Bubbles();
@@ -31,6 +33,24 @@ namespace Aufgabe10 {
 
             bubbles.push(bubble);
         }
+        
+        
+        //Seesterne
+        for (let i: number = 0; i <= m; i++) {
+            let starfish: Starfish = new Starfish();
+            starfish.x = (325);
+            starfish.y = (675);
+            
+            starfishes.push(starfish);
+            }
+        
+        for (let i: number = 0; i <= m; i++) {
+            let starfish: Starfish = new Starfish();
+            starfish.x = (550);
+            starfish.y = (750);
+            
+            starfishes.push(starfish);
+            }
 
         //Fische
         for ( let i: number = 0; i < n; i++ ) {
@@ -45,14 +65,6 @@ namespace Aufgabe10 {
 
         }
 
-        //Seesterne
-        /*for (let i: number = 0; i < n; i++) {
-            let starfish: Starfish = new Starfish();
-            starfish.x = Math.random() * crc2.canvas.width;
-            starfish.y = Math.random() * crc2.canvas.height;
-            
-            starfishes.push(starfish);
-            }*/
 
         //Animation aufrufen
         animate();
@@ -72,6 +84,10 @@ namespace Aufgabe10 {
     }
 
     function moveObjects(): void {
+        for (let i: number = 0; i < starfishes.length; i++) {
+            starfishes[i].move();
+            }
+        
         for ( let i: number = 0; i < fishes.length; i++ ) {
             fishes[i].move();
         }
@@ -79,22 +95,20 @@ namespace Aufgabe10 {
         for ( let i: number = 0; i < bubbles.length; i++ ) {
             bubbles[i].move();
         }
-        
-        /*for (let i: number = 0; i < starfishes.length; i++) {
-            starfishes[i].move();
-            }*/
 
     }
 
     function drawObjects(): void {
+        for (let i: number = 0; i < starfishes.length; i++)
+            starfishes[i].drawStarfish();
+        
+        
         for ( let i: number = 0; i < fishes.length; i++ )
             fishes[i].draw();
 
 
         for ( let i: number = 0; i < bubbles.length; i++ )
             bubbles[i].drawBubble();
-
-        /*for (let i: number = 0; i < starfishes.length; i++)
-            starfishes[i].drawStarfish();*/
+        
 }
     }

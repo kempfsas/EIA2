@@ -2,9 +2,8 @@ var Aufgabe10;
 (function (Aufgabe10) {
     class Starfish {
         move() {
-            this.x += Math.random() * 4 - 2;
-            ;
-            this.y += Math.random() * 4 - 2;
+            this.x += Math.random() * 2 - 1;
+            this.y += Math.random() * 2 - 1;
         }
         //Funktion f�r Seesterne
         drawStarfish() {

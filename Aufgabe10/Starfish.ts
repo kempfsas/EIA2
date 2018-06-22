@@ -7,8 +7,8 @@ namespace Aufgabe10 {
 
 
         move(): void {
-            this.x += Math.random() * 4 - 2;;
-            this.y += Math.random() * 4 - 2;
+            this.x += Math.random() * 2 - 1;
+            this.y += Math.random() * 2 - 1;
         }
 
 
