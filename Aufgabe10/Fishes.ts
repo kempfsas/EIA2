@@ -11,6 +11,7 @@ namespace Aufgabe10 {
 
             this.x -= 2;
             this.y += 0;
+
         }
 
         //Funktion Fische
@@ -32,5 +33,7 @@ namespace Aufgabe10 {
         }
 
     }
+    
+    
+        }
 
-}

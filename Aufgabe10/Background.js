@@ -168,14 +168,6 @@ var Aufgabe10;
             //crc2.stroke();
             crc2.closePath();*/
         }
-        drawMouth(_x, _y, _radius) {
-            Aufgabe10.ctx.beginPath();
-            Aufgabe10.crc2.fillStyle = "rgb(230, 255, 247)";
-            Aufgabe10.ctx.arc(_x, _y, _radius, 0, 2 * Math.PI);
-            Aufgabe10.crc2.closePath();
-            Aufgabe10.crc2.stroke();
-            Aufgabe10.crc2.fill();
-        }
     }
     Aufgabe10.Background = Background;
 })(Aufgabe10 || (Aufgabe10 = {}));

@@ -2,6 +2,7 @@ var Aufgabe10;
 (function (Aufgabe10) {
     window.addEventListener("load", init);
     let fishes = [];
+    //let fish2: Fishes2[] = [];
     let bubbles = [];
     let starfishes = [];
     let n = 16;
@@ -44,12 +45,22 @@ var Aufgabe10;
             let fish = new Aufgabe10.Fishes();
             fish.x = Math.random() * Aufgabe10.crc2.canvas.width;
             fish.y = Math.random() * Aufgabe10.crc2.canvas.height;
-            fish.r = Math.random() * 400;
-            fish.g = Math.random() * 150;
-            fish.b = Math.random() * 360;
+            fish.r = Math.random() * 600;
+            fish.g = Math.random() * 100;
+            fish.b = Math.random() * 200;
             fishes.push(fish);
         }
-        //Animation aufrufen
+        /* for ( let i: number = 0; i < n; i++ ) {
+            let fishi: Fishes2 = new Fishes2();
+            fishi.x = Math.random() * crc2.canvas.width;
+            fishi.y = Math.random() * crc2.canvas.height;
+            fishi.r = Math.random() * 400;
+            fishi.g = Math.random() * 0;
+            fishi.b = Math.random() * 0;
+
+            fish2.push(fishi);
+        }*/
+        //Animation wird aufrufen
         animate();
     }
     function animate() {
@@ -67,6 +78,9 @@ var Aufgabe10;
         for (let i = 0; i < fishes.length; i++) {
             fishes[i].move();
         }
+        /*for (let i: number; i < fish2.length; i++) {
+            fish2[i].move();
+            }*/
         for (let i = 0; i < bubbles.length; i++) {
             bubbles[i].move();
         }
@@ -76,6 +90,8 @@ var Aufgabe10;
             starfishes[i].drawStarfish();
         for (let i = 0; i < fishes.length; i++)
             fishes[i].draw();
+        /*for (let i: number = 0; i < fish2.length; i++)
+            fish2[i].drawFish2();*/
         for (let i = 0; i < bubbles.length; i++)
             bubbles[i].drawBubble();
     }

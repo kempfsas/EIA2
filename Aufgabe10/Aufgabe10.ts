@@ -3,6 +3,7 @@ namespace Aufgabe10 {
     export let crc2: CanvasRenderingContext2D;
     export let ctx: CanvasRenderingContext2D;
     let fishes: Fishes[] = [];
+    //let fish2: Fishes2[] = [];
     let bubbles: Bubbles[] = [];
     let starfishes: Starfish[] = [];
     let n: number = 16;
@@ -51,22 +52,35 @@ namespace Aufgabe10 {
             
             starfishes.push(starfish);
             }
+        
+        
 
         //Fische
         for ( let i: number = 0; i < n; i++ ) {
             let fish: Fishes = new Fishes();
             fish.x = Math.random() * crc2.canvas.width;
             fish.y = Math.random() * crc2.canvas.height;
-            fish.r = Math.random() * 400;
-            fish.g = Math.random() * 150;
-            fish.b = Math.random() * 360;
+            fish.r = Math.random() * 600;
+            fish.g = Math.random() * 100;
+            fish.b = Math.random() * 200;
 
             fishes.push(fish);
 
         }
+        
+        /* for ( let i: number = 0; i < n; i++ ) {
+            let fishi: Fishes2 = new Fishes2();
+            fishi.x = Math.random() * crc2.canvas.width;
+            fishi.y = Math.random() * crc2.canvas.height;
+            fishi.r = Math.random() * 400;
+            fishi.g = Math.random() * 0;
+            fishi.b = Math.random() * 0;
+
+            fish2.push(fishi);
+        }*/
 
 
-        //Animation aufrufen
+        //Animation wird aufrufen
         animate();
 
     }
@@ -91,6 +105,10 @@ namespace Aufgabe10 {
         for ( let i: number = 0; i < fishes.length; i++ ) {
             fishes[i].move();
         }
+        
+        /*for (let i: number; i < fish2.length; i++) {
+            fish2[i].move();
+            }*/
 
         for ( let i: number = 0; i < bubbles.length; i++ ) {
             bubbles[i].move();
@@ -101,11 +119,13 @@ namespace Aufgabe10 {
     function drawObjects(): void {
         for (let i: number = 0; i < starfishes.length; i++)
             starfishes[i].drawStarfish();
-        
+
         
         for ( let i: number = 0; i < fishes.length; i++ )
             fishes[i].draw();
-
+        
+        /*for (let i: number = 0; i < fish2.length; i++)
+            fish2[i].drawFish2();*/
 
         for ( let i: number = 0; i < bubbles.length; i++ )
             bubbles[i].drawBubble();

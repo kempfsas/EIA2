@@ -189,14 +189,14 @@ export class Background {
             crc2.closePath();*/
         }
     
-    drawMouth(_x: number, _y: number, _radius: number): void {
+    /*drawMouth(_x: number, _y: number, _radius: number): void {
                             ctx.beginPath();
         crc2.fillStyle = "rgb(230, 255, 247)";
         ctx.arc(_x, _y, _radius,0,2*Math.PI);
         crc2.closePath();
         crc2.stroke();
         crc2.fill();
-        }
+        }*/
  
     
     
