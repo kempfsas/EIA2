@@ -7,18 +7,18 @@ var Aufgabe10;
     let n = 16;
     let m = 0;
     let imgData;
-    //let imgData: ImageData;
     function init(_event) {
         let canvas = document.getElementsByTagName("canvas")[0];
         Aufgabe10.crc2 = canvas.getContext("2d");
         Aufgabe10.ctx = canvas.getContext("2d");
         console.log(Aufgabe10.crc2);
-        //Hintergund mittels einer Klasse erstellen
+        //Hintergund wird mittels einer Klasse erstellt
         let hg = new Aufgabe10.Background;
         hg.paint();
-        imgData = Aufgabe10.crc2.getImageData(0, 0, canvas.width, canvas.height); //Speichern des Canvas als Bild
+        //Speichern des Bildes, damit es nicht jedes mal neu gezeichnet werden muss:
+        imgData = Aufgabe10.crc2.getImageData(0, 0, canvas.width, canvas.height);
         console.log(imgData);
-        //Luftblasen 
+        //Luftblasen aus der Schatzkiste
         for (let i = 0; i < n; i++) {
             let bubble = new Aufgabe10.Bubbles();
             bubble.x = (740);
@@ -52,6 +52,7 @@ var Aufgabe10;
         //Animation wird aufrufen
         animate();
     }
+    //Funktion f�r Animation der Objekte
     function animate() {
         window.setTimeout(animate, 18);
         //console.log(animate);
@@ -79,5 +80,5 @@ var Aufgabe10;
         for (let i = 0; i < bubbles.length; i++)
             bubbles[i].drawBubble();
     }
-})(Aufgabe10 || (Aufgabe10 = {}));
+})(Aufgabe10 || (Aufgabe10 = {})); //Schlie�en von namespace
 //# sourceMappingURL=Aufgabe10.js.map

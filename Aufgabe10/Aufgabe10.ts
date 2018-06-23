@@ -8,24 +8,25 @@ namespace Aufgabe10 {
     let n: number = 16;
     let m: number = 0;
     let imgData: ImageData;
-    
-    //let imgData: ImageData;
-    function init( _event: Event ): void {
+
+
+    function init(_event: Event): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
         ctx = canvas.getContext("2d");
         console.log(crc2);
 
 
-        //Hintergund mittels einer Klasse erstellen
+        //Hintergund wird mittels einer Klasse erstellt
         let hg: Background = new Background;
         hg.paint();
-        imgData = crc2.getImageData( 0, 0, canvas.width, canvas.height ); //Speichern des Canvas als Bild
+        //Speichern des Bildes, damit es nicht jedes mal neu gezeichnet werden muss:
+        imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
         console.log(imgData);
 
-        
-        //Luftblasen 
-        for ( let i: number = 0; i < n; i++ ) {
+
+        //Luftblasen aus der Schatzkiste
+        for (let i: number = 0; i < n; i++) {
             let bubble: Bubbles = new Bubbles();
             bubble.x = (740);
             bubble.y = Math.random() * 625;
@@ -33,29 +34,29 @@ namespace Aufgabe10 {
 
             bubbles.push(bubble);
         }
-        
-        
+
+
         //Seesterne
         for (let i: number = 0; i <= m; i++) {
             let starfish: Starfish = new Starfish();
             starfish.x = (325);
             starfish.y = (675);
-            
+
             starfishes.push(starfish);
-            }
-        
+        }
+
         for (let i: number = 0; i <= m; i++) {
             let starfish: Starfish = new Starfish();
             starfish.x = (550);
             starfish.y = (750);
-            
+
             starfishes.push(starfish);
-            }
-        
-        
+        }
+
+
 
         //Fische
-        for ( let i: number = 0; i < n; i++ ) {
+        for (let i: number = 0; i < n; i++) {
             let fish: Fishes = new Fishes();
             fish.x = Math.random() * crc2.canvas.width;
             fish.y = Math.random() * crc2.canvas.height;
@@ -66,7 +67,7 @@ namespace Aufgabe10 {
             fishes.push(fish);
 
         }
-        
+
 
 
         //Animation wird aufrufen
@@ -74,30 +75,32 @@ namespace Aufgabe10 {
 
     }
 
+    //Funktion für Animation der Objekte
     function animate(): void {
         window.setTimeout(animate, 18);
 
         //console.log(animate);
-        
-        crc2.putImageData(imgData, 0, 0); 
+
+        crc2.putImageData(imgData, 0, 0);
         //crc2.clearRect( 0, 0, crc2.canvas.width, crc2.canvas.height );
 
         moveObjects();
         drawObjects();
     }
 
+
     function moveObjects(): void {
 
         for (let i: number = 0; i < starfishes.length; i++) {
             starfishes[i].move();
-            }
-        
-        for ( let i: number = 0; i < fishes.length; i++ ) {
+        }
+
+        for (let i: number = 0; i < fishes.length; i++) {
             fishes[i].move();
         }
-        
 
-        for ( let i: number = 0; i < bubbles.length; i++ ) {
+
+        for (let i: number = 0; i < bubbles.length; i++) {
             bubbles[i].move();
         }
 
@@ -107,12 +110,12 @@ namespace Aufgabe10 {
         for (let i: number = 0; i < starfishes.length; i++)
             starfishes[i].drawStarfish();
 
-        
-        for ( let i: number = 0; i < fishes.length; i++ )
+
+        for (let i: number = 0; i < fishes.length; i++)
             fishes[i].draw();
 
-        for ( let i: number = 0; i < bubbles.length; i++ )
+        for (let i: number = 0; i < bubbles.length; i++)
             bubbles[i].drawBubble();
-        
-}
+
     }
+} //Schließen von namespace
