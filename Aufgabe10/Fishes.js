@@ -2,7 +2,12 @@ var Aufgabe10;
 (function (Aufgabe10) {
     class Fishes {
         move() {
-            this.x -= 2;
+            //this.x -= 2;
+            //this.y += 0;
+            this.x += -2;
+            if (this.x < -80) {
+                this.x = Aufgabe10.crc2.canvas.width;
+            }
             this.y += 0;
         }
         //Funktion Fische

@@ -4,6 +4,9 @@ var Aufgabe10;
         move() {
             this.x += 0;
             this.y -= 2;
+            if (this.y < 0) {
+                this.y = 625;
+            }
         }
         //Funktion f�r Luftblasen
         drawBubble() {

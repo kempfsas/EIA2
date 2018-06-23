@@ -3,7 +3,6 @@ namespace Aufgabe10 {
     export let crc2: CanvasRenderingContext2D;
     export let ctx: CanvasRenderingContext2D;
     let fishes: Fishes[] = [];
-    //let fish2: Fishes2[] = [];
     let bubbles: Bubbles[] = [];
     let starfishes: Starfish[] = [];
     let n: number = 16;
@@ -68,16 +67,6 @@ namespace Aufgabe10 {
 
         }
         
-        /* for ( let i: number = 0; i < n; i++ ) {
-            let fishi: Fishes2 = new Fishes2();
-            fishi.x = Math.random() * crc2.canvas.width;
-            fishi.y = Math.random() * crc2.canvas.height;
-            fishi.r = Math.random() * 400;
-            fishi.g = Math.random() * 0;
-            fishi.b = Math.random() * 0;
-
-            fish2.push(fishi);
-        }*/
 
 
         //Animation wird aufrufen
@@ -98,6 +87,7 @@ namespace Aufgabe10 {
     }
 
     function moveObjects(): void {
+
         for (let i: number = 0; i < starfishes.length; i++) {
             starfishes[i].move();
             }
@@ -106,9 +96,6 @@ namespace Aufgabe10 {
             fishes[i].move();
         }
         
-        /*for (let i: number; i < fish2.length; i++) {
-            fish2[i].move();
-            }*/
 
         for ( let i: number = 0; i < bubbles.length; i++ ) {
             bubbles[i].move();
@@ -123,9 +110,6 @@ namespace Aufgabe10 {
         
         for ( let i: number = 0; i < fishes.length; i++ )
             fishes[i].draw();
-        
-        /*for (let i: number = 0; i < fish2.length; i++)
-            fish2[i].drawFish2();*/
 
         for ( let i: number = 0; i < bubbles.length; i++ )
             bubbles[i].drawBubble();

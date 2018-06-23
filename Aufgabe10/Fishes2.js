@@ -1,8 +1,11 @@
 var Aufgabe10;
 (function (Aufgabe10) {
-    class Fishes2 {
-        move() {
+    class FishesChangedDirection {
+        moveFish() {
             this.x += 2;
+            if (this.x < +100) {
+                this.x = Aufgabe10.crc2.canvas.width;
+            }
             this.y += 0;
         }
         drawFish2() {
@@ -21,6 +24,6 @@ var Aufgabe10;
             Aufgabe10.ctx.fill();
         }
     }
-    Aufgabe10.Fishes2 = Fishes2;
+    Aufgabe10.FishesChangedDirection = FishesChangedDirection;
 })(Aufgabe10 || (Aufgabe10 = {}));
 //# sourceMappingURL=Fishes2.js.map

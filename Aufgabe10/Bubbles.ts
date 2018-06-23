@@ -10,6 +10,10 @@ namespace Aufgabe10 {
         move(): void {
             this.x += 0;
             this.y -= 2;
+            
+            if (this.y < 0) {
+                this.y = 625;
+}
         }
 
 

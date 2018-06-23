@@ -1,14 +1,17 @@
 namespace Aufgabe10 {
 
-    export class Fishes2 {
+    export class FishesChangedDirection {
         x: number;
         y: number;
         r: number;
         b: number;
         g: number;
 
-        move(): void {
+        moveFish(): void {
             this.x += 2;
+            if (this.x < +100) {
+                this.x = crc2.canvas.width;
+            }
             this.y += 0;
         }
 
