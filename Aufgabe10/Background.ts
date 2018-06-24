@@ -2,7 +2,7 @@ namespace Aufgabe10 {
 
 export class Background {
 
-    public paint(): void {
+    public screen(): void {
         this.drawBackground(260);
         this.drawWave();
         this.drawBottomLine();

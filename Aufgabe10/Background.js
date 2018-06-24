@@ -1,7 +1,7 @@
 var Aufgabe10;
 (function (Aufgabe10) {
     class Background {
-        paint() {
+        screen() {
             this.drawBackground(260);
             this.drawWave();
             this.drawBottomLine();

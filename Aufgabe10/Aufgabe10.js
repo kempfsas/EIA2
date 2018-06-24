@@ -14,7 +14,7 @@ var Aufgabe10;
         console.log(Aufgabe10.crc2);
         //Hintergund wird mittels einer Klasse erstellt
         let hg = new Aufgabe10.Background;
-        hg.paint();
+        hg.screen();
         //Speichern des Bildes, damit es nicht jedes mal neu gezeichnet werden muss:
         imgData = Aufgabe10.crc2.getImageData(0, 0, canvas.width, canvas.height);
         console.log(imgData);
