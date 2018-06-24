@@ -19,11 +19,11 @@ namespace Aufgabe10 {
 
         //Funktion für Luftblasen
         drawBubble(): void {
-            ctx.beginPath();
+            crc2.beginPath();
             crc2.fillStyle = "rgb(230, 255, 247)";
-            ctx.arc( this.x, this.y, this.radius, 0,2*Math.PI);
+            crc2.arc( this.x, this.y, this.radius, 0,2*Math.PI);
             crc2.closePath();
-            ctx.stroke();
+            crc2.stroke();
             crc2.fill();
         }
 

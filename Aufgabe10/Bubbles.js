@@ -10,11 +10,11 @@ var Aufgabe10;
         }
         //Funktion f�r Luftblasen
         drawBubble() {
-            Aufgabe10.ctx.beginPath();
+            Aufgabe10.crc2.beginPath();
             Aufgabe10.crc2.fillStyle = "rgb(230, 255, 247)";
-            Aufgabe10.ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+            Aufgabe10.crc2.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
             Aufgabe10.crc2.closePath();
-            Aufgabe10.ctx.stroke();
+            Aufgabe10.crc2.stroke();
             Aufgabe10.crc2.fill();
         }
     }
