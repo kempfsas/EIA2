@@ -10,7 +10,6 @@ var Aufgabe10;
     function init(_event) {
         let canvas = document.getElementsByTagName("canvas")[0];
         Aufgabe10.crc2 = canvas.getContext("2d");
-        Aufgabe10.ctx = canvas.getContext("2d");
         console.log(Aufgabe10.crc2);
         //Hintergund wird mittels einer Klasse erstellt
         let hg = new Aufgabe10.Background;

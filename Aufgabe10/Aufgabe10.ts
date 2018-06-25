@@ -1,7 +1,6 @@
 namespace Aufgabe10 {
     window.addEventListener("load", init);
     export let crc2: CanvasRenderingContext2D;
-    export let ctx: CanvasRenderingContext2D;
     let fishes: Fishes[] = [];
     let bubbles: Bubbles[] = [];
     let starfishes: Starfish[] = [];
@@ -13,7 +12,6 @@ namespace Aufgabe10 {
     function init(_event: Event): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
-        ctx = canvas.getContext("2d");
         console.log(crc2);
 
 

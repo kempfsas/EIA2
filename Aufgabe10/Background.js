@@ -50,18 +50,18 @@ var Aufgabe10;
             Aufgabe10.crc2.fill();
         }
         drawChestCover(_x, _y) {
-            Aufgabe10.ctx.beginPath();
+            Aufgabe10.crc2.beginPath();
             Aufgabe10.crc2.fillStyle = "rgb(102, 51, 0)";
-            Aufgabe10.ctx.moveTo(_x, _y);
-            Aufgabe10.ctx.bezierCurveTo(_x + 80, _y - 40, _x + 80, _y + 60, _x + 60, _y + 70);
+            Aufgabe10.crc2.moveTo(_x, _y);
+            Aufgabe10.crc2.bezierCurveTo(_x + 80, _y - 40, _x + 80, _y + 60, _x + 60, _y + 70);
             Aufgabe10.crc2.fill();
             //crc2.lineTo(_x + 140, _y);
             Aufgabe10.crc2.closePath();
-            Aufgabe10.ctx.stroke();
+            Aufgabe10.crc2.stroke();
         }
         drawChestBottom(_x, _y, _width, _height) {
             //crc2.stroke();
-            Aufgabe10.ctx.beginPath();
+            Aufgabe10.crc2.beginPath();
             Aufgabe10.crc2.fillStyle = "rgb(102, 51, 0)";
             Aufgabe10.crc2.moveTo(_x + 40, _y);
             Aufgabe10.crc2.fillRect(_x + 25, _y + 25, _width, _height);

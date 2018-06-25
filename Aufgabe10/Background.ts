@@ -57,19 +57,19 @@ export class Background {
     }
     
     drawChestCover(_x: number, _y: number): void {
-        ctx.beginPath();
+        crc2.beginPath();
         crc2.fillStyle = "rgb(102, 51, 0)";
-        ctx.moveTo(_x,_y);
-        ctx.bezierCurveTo(_x +80, _y -40, _x +80, _y +60, _x +60, _y +70)
+        crc2.moveTo(_x,_y);
+        crc2.bezierCurveTo(_x +80, _y -40, _x +80, _y +60, _x +60, _y +70)
         crc2.fill();
         //crc2.lineTo(_x + 140, _y);
         crc2.closePath();
-        ctx.stroke();
+        crc2.stroke();
         }
     
     drawChestBottom(_x: number, _y: number, _width: number, _height: number): void {
         //crc2.stroke();
-        ctx.beginPath();
+        crc2.beginPath();
         crc2.fillStyle = "rgb(102, 51, 0)";
         crc2.moveTo(_x + 40, _y);
         crc2.fillRect( _x + 25, _y + 25, _width, _height );
