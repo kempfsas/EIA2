@@ -31,9 +31,23 @@ var Aufgabe11;
         }
         animate();
     }
-    function insertNewObject(_event) {
-        let foodie = new Aufgabe11.Food("rgb(204, 102, 0)");
+    /*function insertNewObject(_event: Event): void {
+        let foodie: Food = new Food("rgb(204, 102, 0)");
         fishes.push(foodie);
+    }*/
+    function insertNewObject(_event) {
+        //Abfrage f�r x und y des MouseEvents
+        let x = _event.clientX;
+        let y = _event.clientY;
+        let r = Math.floor(Math.random() * 2);
+        switch (r) {
+            case 0:
+                let foodie = new Aufgabe11.Food("rgb(204, 102, 0)");
+                foodie.x = x;
+                foodie.y = y;
+                fishes.push(foodie);
+                break;
+        }
     }
     function animate() {
         window.setTimeout(animate, 10);
@@ -145,5 +159,5 @@ for (let i: number = 0; i < bubbles.length; i++)
 
 for (let i: number = 0; i < foodie.length; i++) {
     foodie[i].drawFood();
-}*/
+}*/ 
 //# sourceMappingURL=Animation.js.map

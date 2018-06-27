@@ -46,10 +46,28 @@ namespace Aufgabe11 {
         animate();
     }
     
-    function insertNewObject(_event: Event): void {
+    /*function insertNewObject(_event: Event): void {
         let foodie: Food = new Food("rgb(204, 102, 0)");
         fishes.push(foodie);
-    }
+    }*/
+    
+    function insertNewObject(_event: MouseEvent): void {
+
+        //Abfrage für x und y des MouseEvents
+        let x: number = _event.clientX;
+        let y: number = _event.clientY;
+
+        let r: number = Math.floor(Math.random() * 2);
+
+        switch (r) {
+            case 0:
+                let foodie: Food = new Food("rgb(204, 102, 0)");
+                foodie.x = x;
+                foodie.y = y;
+                fishes.push(foodie);
+                break;
+            }
+        }
     
     function animate(): void {
         window.setTimeout(animate, 10);
