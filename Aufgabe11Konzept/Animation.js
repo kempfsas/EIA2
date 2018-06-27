@@ -9,7 +9,7 @@ var L11_Inheritance;
         L11_Inheritance.crc2 = canvas.getContext("2d");
         console.log(L11_Inheritance.crc2);
         canvas.addEventListener("click", insertNewObject);
-        canvas.addEventListener("mousedown", getPosition, false);
+        //canvas.addEventListener("mousedown", getPosition, false);
         for (let i = 0; i < n; i++) {
             let star = new L11_Inheritance.DavidStar("#00ffff");
             stars.push(star);
@@ -22,21 +22,32 @@ var L11_Inheritance;
         }
         animate();
     }
-    function insertNewObject(_event) {
-        let star = new L11_Inheritance.DavidStar("#ffff00");
+    /*function insertNewObject(_event: Event): void {
+        let star: DavidStar = new DavidStar("#ffff00");
         stars.push(star);
-        /*let circles: Circle = new Circle("#800000");
-        stars.push(circles);*/
-    }
-    function getPosition(_event) {
-        let circles = new L11_Inheritance.Circle("#800000");
+        
+        let circles: Circle = new Circle("#800000");
         stars.push(circles);
-        var x = this.circles.x;
-        var y = this.circles.y;
-        var radius = this.circles.radius;
-        var canvas = document.getElementById("canvas");
-        x -= canvas.offsetLeft;
-        y -= canvas.offsetTop;
+    }*/
+    function insertNewObject(_event) {
+        //Abfrage f�r x und y des MouseEvents
+        let newX = _event.clientX;
+        let newY = _event.clientY;
+        let r = Math.floor(Math.random() * 2);
+        switch (r) {
+            case 0:
+                let rect = new L11_Inheritance.Rect("#ff0000");
+                rect.x = newX;
+                rect.y = newY;
+                stars.push(rect);
+                break;
+            case 1:
+                let circles = new L11_Inheritance.Circle("#800000");
+                circles.x = newX;
+                circles.y = newY;
+                stars.push(circles);
+                break;
+        }
     }
     function animate() {
         window.setTimeout(animate, 10);

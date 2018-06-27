@@ -12,7 +12,7 @@ namespace L11_Inheritance {
         console.log(crc2);
 
         canvas.addEventListener("click", insertNewObject);
-        canvas.addEventListener("mousedown", getPosition, false);
+        //canvas.addEventListener("mousedown", getPosition, false);
 
         for (let i: number = 0; i < n; i++) {
             let star: DavidStar = new DavidStar("#00ffff");
@@ -33,30 +33,38 @@ namespace L11_Inheritance {
         animate();
     }
 
-    function insertNewObject(_event: Event): void {
+    /*function insertNewObject(_event: Event): void {
         let star: DavidStar = new DavidStar("#ffff00");
         stars.push(star);
         
-        /*let circles: Circle = new Circle("#800000");
-        stars.push(circles);*/
-    }
-    
-    function getPosition (_event: Event): void {
         let circles: Circle = new Circle("#800000");
         stars.push(circles);
+    }*/
+        function insertNewObject(_event: MouseEvent): void {
 
-        var x = this.circles.x;
-        var y = this.circles.y;
-        var radius = this.circles.radius;
+        //Abfrage für x und y des MouseEvents
+        let newX: number = _event.clientX;
+        let newY: number = _event.clientY;
 
-        var canvas = document.getElementById("canvas");
-        
-        x -= canvas.offsetLeft;
-        y -= canvas.offsetTop;
+        let r: number = Math.floor(Math.random() * 2);
 
-        
-        }
+        switch (r) {
+            case 0:
+                let rect: Rect = new Rect("#ff0000");
+                rect.x = newX;
+                rect.y = newY;
+                stars.push(rect);
+                break;
 
+            case 1:
+                let circles: Circle = new Circle("#800000");
+                circles.x = newX;
+                circles.y = newY;
+                stars.push(circles);
+                break;
+}
+ 
+}
     function animate(): void {
         window.setTimeout(animate, 10);
 
