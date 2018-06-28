@@ -1,13 +1,6 @@
 var Aufgabe11;
 (function (Aufgabe11) {
     class Fish extends Aufgabe11.MovingObject {
-        /*x: number;
-        y: number;
-        r: number;
-        b: number;
-        g: number;
-        radius: number;
-        color: string;*/
         constructor(_color) {
             super(_color);
         }

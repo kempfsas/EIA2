@@ -1,13 +1,6 @@
 namespace Aufgabe11 {
     
     export class Fish extends MovingObject {
-        /*x: number;
-        y: number;
-        r: number;
-        b: number;
-        g: number;
-        radius: number;
-        color: string;*/
         
      constructor(_color: string) {
             super(_color);
