@@ -1,7 +1,7 @@
 var Aufgabe11;
 (function (Aufgabe11) {
     window.addEventListener("load", init);
-    let fishes = [];
+    let movingObject = [];
     /*let bubbles: Bubbles[] = [];
     let starfishes: Starfish[] = [];
     let foodie: Food[] = [];*/
@@ -21,13 +21,13 @@ var Aufgabe11;
         console.log(imgData);
         for (let i = 0; i <= m; i++) {
             let starfishes = new Aufgabe11.Starfish("rgb(255, 51, 255)");
-            fishes.push(starfishes);
+            movingObject.push(starfishes);
         }
         for (let i = 0; i < n; i++) {
-            let fish = new Aufgabe11.Fishes("#00ffff");
-            fishes.push(fish);
-            let bubble = new Aufgabe11.Bubbles("rgb(230, 255, 247)");
-            fishes.push(bubble);
+            let fishes = new Aufgabe11.Fish("#00ffff");
+            movingObject.push(fishes);
+            let bubbles = new Aufgabe11.Bubble("rgb(230, 255, 247)");
+            movingObject.push(bubbles);
         }
         animate();
     }
@@ -45,7 +45,7 @@ var Aufgabe11;
                 let foodie = new Aufgabe11.Food("rgb(204, 102, 0)");
                 foodie.x = x;
                 foodie.y = y;
-                fishes.push(foodie);
+                movingObject.push(foodie);
                 break;
         }
     }
@@ -57,13 +57,13 @@ var Aufgabe11;
         drawObjects();
     }
     function moveObjects() {
-        for (let i = 0; i < fishes.length; i++) {
-            fishes[i].move();
+        for (let i = 0; i < movingObject.length; i++) {
+            movingObject[i].move();
         }
     }
     function drawObjects() {
-        for (let i = 0; i < fishes.length; i++) {
-            fishes[i].draw();
+        for (let i = 0; i < movingObject.length; i++) {
+            movingObject[i].draw();
         }
     }
 })(Aufgabe11 || (Aufgabe11 = {}));

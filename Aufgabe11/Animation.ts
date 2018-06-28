@@ -1,7 +1,7 @@
 namespace Aufgabe11 {
     window.addEventListener("load", init);
     export let crc2: CanvasRenderingContext2D;
-    let fishes: Fishes[] = [];
+    let movingObjects: MovingObject[] = [];
     /*let bubbles: Bubbles[] = [];
     let starfishes: Starfish[] = [];
     let foodie: Food[] = [];*/
@@ -28,15 +28,15 @@ namespace Aufgabe11 {
                 
         for (let i: number = 0; i <= m; i++) {
             let starfishes: Starfish = new Starfish("rgb(255, 51, 255)");
-            fishes.push(starfishes);
+            movingObjects.push(starfishes);
         }
         
         for (let i: number = 0; i < n; i++) {
-            let fish: Fishes = new Fishes("#00ffff");
-            fishes.push(fish);
+            let fishes: Fish = new Fish("#00ffff");
+            movingObjects.push(fishes);
             
-            let bubble: Bubbles = new Bubbles("rgb(230, 255, 247)");
-            fishes.push(bubble);
+            let bubbles: Bubble = new Bubble("rgb(230, 255, 247)");
+            movingObjects.push(bubbles);
             
             /*let foodie: Food = new Food("rgb(204, 102, 0)");
             fishes.push(foodie);*/
@@ -64,7 +64,7 @@ namespace Aufgabe11 {
                 let foodie: Food = new Food("rgb(204, 102, 0)");
                 foodie.x = x;
                 foodie.y = y;
-                fishes.push(foodie);
+                movingObjects.push(foodie);
                 break;
             }
         }
@@ -80,14 +80,14 @@ namespace Aufgabe11 {
     }
     
     function moveObjects(): void {
-        for (let i: number = 0; i < fishes.length; i++) {
-            fishes[i].move();
+        for (let i: number = 0; i < movingObjects.length; i++) {
+            movingObjects[i].move();
         }
     }
     
     function drawObjects(): void {
-        for (let i: number = 0; i < fishes.length; i++) {
-            fishes[i].draw();
+        for (let i: number = 0; i < movingObjects.length; i++) {
+            movingObjects[i].draw();
         }
     }
     
