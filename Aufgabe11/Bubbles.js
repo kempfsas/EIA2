@@ -1,6 +1,6 @@
 var Aufgabe11;
 (function (Aufgabe11) {
-    class Bubbles extends Aufgabe11.Fishes {
+    class Bubble extends Aufgabe11.MovingObject {
         /*x: number;
         y: number;
         radius: number;*/
@@ -29,6 +29,6 @@ var Aufgabe11;
             Aufgabe11.crc2.fill();
         }
     }
-    Aufgabe11.Bubbles = Bubbles;
+    Aufgabe11.Bubble = Bubble;
 })(Aufgabe11 || (Aufgabe11 = {}));
 //# sourceMappingURL=Bubbles.js.map

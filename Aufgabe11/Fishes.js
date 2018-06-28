@@ -1,9 +1,15 @@
 var Aufgabe11;
 (function (Aufgabe11) {
-    class Fishes {
+    class Fish extends Aufgabe11.MovingObject {
+        /*x: number;
+        y: number;
+        r: number;
+        b: number;
+        g: number;
+        radius: number;
+        color: string;*/
         constructor(_color) {
-            this.setRandomPosition();
-            this.color = _color;
+            super(_color);
         }
         setRandomPosition() {
             this.x = Math.random() * Aufgabe11.crc2.canvas.width;
@@ -37,6 +43,6 @@ var Aufgabe11;
             Aufgabe11.crc2.closePath();
         }
     }
-    Aufgabe11.Fishes = Fishes;
+    Aufgabe11.Fish = Fish;
 })(Aufgabe11 || (Aufgabe11 = {}));
 //# sourceMappingURL=Fishes.js.map

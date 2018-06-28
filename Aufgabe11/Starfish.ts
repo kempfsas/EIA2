@@ -1,7 +1,7 @@
 namespace Aufgabe11 {
 
 
-    export class Starfish extends Fishes {
+    export class Starfish extends MovingObject {
         //x: number;
         //y: number;
 

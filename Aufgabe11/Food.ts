@@ -1,6 +1,6 @@
 namespace Aufgabe11 {
 
-    export class Food extends Fishes {
+    export class Food extends MovingObject {
         /* x: number;
         y: number;
         radius: number;*/

@@ -1,6 +1,6 @@
 var Aufgabe11;
 (function (Aufgabe11) {
-    class Starfish extends Aufgabe11.Fishes {
+    class Starfish extends Aufgabe11.MovingObject {
         //x: number;
         //y: number;
         constructor(_color) {

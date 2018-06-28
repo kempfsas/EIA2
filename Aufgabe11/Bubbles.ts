@@ -1,7 +1,7 @@
 namespace Aufgabe11 {
 
 
-    export class Bubbles extends Fishes {
+    export class Bubble extends MovingObject {
         /*x: number;
         y: number;
         radius: number;*/

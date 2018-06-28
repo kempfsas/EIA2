@@ -1,6 +1,6 @@
 var Aufgabe11;
 (function (Aufgabe11) {
-    class Food extends Aufgabe11.Fishes {
+    class Food extends Aufgabe11.MovingObject {
         /* x: number;
         y: number;
         radius: number;*/

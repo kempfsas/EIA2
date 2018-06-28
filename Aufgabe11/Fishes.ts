@@ -1,17 +1,16 @@
 namespace Aufgabe11 {
     
-    export class Fishes {
-        x: number;
+    export class Fish extends MovingObject {
+        /*x: number;
         y: number;
         r: number;
         b: number;
         g: number;
         radius: number;
-        color: string;
+        color: string;*/
         
      constructor(_color: string) {
-            this.setRandomPosition();
-            this.color = _color;
+            super(_color);
         }
 
         setRandomPosition(): void {
