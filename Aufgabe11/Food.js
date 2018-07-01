@@ -11,7 +11,6 @@ var Aufgabe11;
             //this.x = newX;
             //this.y = newY;
             this.radius = 4;
-            this.stop = Math.random() * (690 - 640) + 640;
         }
         /*setRandomPosition(): void {
             this.x = Math.random() * crc2.canvas.width;
