@@ -27,15 +27,15 @@ namespace Aufgabe11 {
         
                 
         for (let i: number = 0; i <= m; i++) {
-            let starfishes: Starfish = new Starfish("rgb(255, 51, 255)");
+            let starfishes: Starfish = new Starfish(/*"rgb(255, 51, 255)"*/);
             movingObjects.push(starfishes);
         }
         
         for (let i: number = 0; i < n; i++) {
-            let fishes: Fish = new Fish("#00ffff");
+            let fishes: Fish = new Fish(/*"#00ffff"*/);
             movingObjects.push(fishes);
             
-            let bubbles: Bubble = new Bubble("rgb(230, 255, 247)");
+            let bubbles: Bubble = new Bubble(/*"rgb(230, 255, 247)"*/);
             movingObjects.push(bubbles);
             
             /*let foodie: Food = new Food("rgb(204, 102, 0)");
@@ -61,12 +61,14 @@ namespace Aufgabe11 {
 
         switch (r) {
             case 0:
-                let foodie: Food = new Food("rgb(204, 102, 0)");
+                let foodie: Food = new Food();
                 foodie.x = x;
                 foodie.y = y;
                 movingObjects.push(foodie);
                 break;
             }
+
+        
         }
     
     function animate(): void {

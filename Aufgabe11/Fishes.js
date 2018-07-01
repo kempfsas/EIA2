@@ -1,12 +1,19 @@
 var Aufgabe11;
 (function (Aufgabe11) {
     class Fish extends Aufgabe11.MovingObject {
-        constructor(_color) {
-            super(_color);
+        constructor() {
+            super();
+            this.setRandomPosition();
+            this.setRandomColor();
         }
         setRandomPosition() {
             this.x = Math.random() * Aufgabe11.crc2.canvas.width;
             this.y = Math.random() * Aufgabe11.crc2.canvas.height;
+            /*this.r = Math.random() * 600;
+            this.g = Math.random() * 100;
+            this.b = Math.random() * 200;*/
+        }
+        setRandomColor() {
             this.r = Math.random() * 600;
             this.g = Math.random() * 100;
             this.b = Math.random() * 200;

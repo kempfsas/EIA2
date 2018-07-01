@@ -4,13 +4,18 @@ var Aufgabe11;
         /*x: number;
         y: number;
         radius: number;*/
-        constructor(_color) {
-            super(_color);
+        constructor() {
+            super();
+            this.setRandomPosition();
+            this.setColor();
         }
         setRandomPosition() {
             this.x = (740);
             this.y = Math.random() * 625;
             this.radius = Math.random() * 10;
+        }
+        setColor() {
+            this.color = "rgb(230, 255, 247)";
         }
         move() {
             this.x += 0;

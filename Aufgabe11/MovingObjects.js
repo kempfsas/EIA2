@@ -1,9 +1,10 @@
 var Aufgabe11;
 (function (Aufgabe11) {
     class MovingObject {
-        constructor(_color) {
-            this.setRandomPosition();
-            this.color = _color;
+        constructor() {
+            //this.setRandomPosition();
+            //this.color = _color;
+            //
         }
         setRandomPosition() {
             /*this.x = Math.random() * crc2.canvas.width;

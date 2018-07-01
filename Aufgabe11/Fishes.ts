@@ -2,17 +2,25 @@ namespace Aufgabe11 {
     
     export class Fish extends MovingObject {
         
-     constructor(_color: string) {
-            super(_color);
+     constructor() {
+            super();
+         this.setRandomPosition();
+         this.setRandomColor();
         }
 
         setRandomPosition(): void {
             this.x = Math.random() * crc2.canvas.width;
             this.y = Math.random() * crc2.canvas.height;
+            /*this.r = Math.random() * 600;
+            this.g = Math.random() * 100;
+            this.b = Math.random() * 200;*/
+        }
+        
+        setRandomColor(): void {
             this.r = Math.random() * 600;
             this.g = Math.random() * 100;
             this.b = Math.random() * 200;
-        }
+            }
         
         move(): void {
             this.x += - 2;

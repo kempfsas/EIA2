@@ -1,7 +1,7 @@
 var Aufgabe11;
 (function (Aufgabe11) {
     window.addEventListener("load", init);
-    let movingObject = [];
+    let movingObjects = [];
     /*let bubbles: Bubbles[] = [];
     let starfishes: Starfish[] = [];
     let foodie: Food[] = [];*/
@@ -20,14 +20,14 @@ var Aufgabe11;
         imgData = Aufgabe11.crc2.getImageData(0, 0, canvas.width, canvas.height);
         console.log(imgData);
         for (let i = 0; i <= m; i++) {
-            let starfishes = new Aufgabe11.Starfish("rgb(255, 51, 255)");
-            movingObject.push(starfishes);
+            let starfishes = new Aufgabe11.Starfish();
+            movingObjects.push(starfishes);
         }
         for (let i = 0; i < n; i++) {
-            let fishes = new Aufgabe11.Fish("#00ffff");
-            movingObject.push(fishes);
-            let bubbles = new Aufgabe11.Bubble("rgb(230, 255, 247)");
-            movingObject.push(bubbles);
+            let fishes = new Aufgabe11.Fish();
+            movingObjects.push(fishes);
+            let bubbles = new Aufgabe11.Bubble();
+            movingObjects.push(bubbles);
         }
         animate();
     }
@@ -42,10 +42,10 @@ var Aufgabe11;
         let r = Math.floor(Math.random() * 2);
         switch (r) {
             case 0:
-                let foodie = new Aufgabe11.Food("rgb(204, 102, 0)");
+                let foodie = new Aufgabe11.Food();
                 foodie.x = x;
                 foodie.y = y;
-                movingObject.push(foodie);
+                movingObjects.push(foodie);
                 break;
         }
     }
@@ -57,13 +57,13 @@ var Aufgabe11;
         drawObjects();
     }
     function moveObjects() {
-        for (let i = 0; i < movingObject.length; i++) {
-            movingObject[i].move();
+        for (let i = 0; i < movingObjects.length; i++) {
+            movingObjects[i].move();
         }
     }
     function drawObjects() {
-        for (let i = 0; i < movingObject.length; i++) {
-            movingObject[i].draw();
+        for (let i = 0; i < movingObjects.length; i++) {
+            movingObjects[i].draw();
         }
     }
 })(Aufgabe11 || (Aufgabe11 = {}));

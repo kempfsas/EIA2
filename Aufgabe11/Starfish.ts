@@ -5,14 +5,20 @@ namespace Aufgabe11 {
         //x: number;
         //y: number;
 
-    constructor(_color: string) {
-            super(_color);
+    constructor() {
+            super();
+            this.setRandomPosition();
+            this.setColor();
         }
         
         setRandomPosition(): void {
             this.x = (460);
             this.y = (690);
 
+            }
+        
+        setColor(): void {
+            this.color = "rgb(255, 51, 255)";
             }
 
         move(): void {

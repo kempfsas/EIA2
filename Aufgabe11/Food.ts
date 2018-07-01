@@ -5,18 +5,28 @@ namespace Aufgabe11 {
         y: number;
         radius: number;*/
 
-        constructor(_color: string) {
-            super(_color);
+        constructor() {
+            super();
+            this.setRandomPosition();
+            this.setColor();
+            //this.x = newX;
+            //this.y = newY;
+            this.radius = 4;  
+            this.stop = Math.random() * (690 - 640) + 640;
         }
 
-        setRandomPosition(): void {
+        /*setRandomPosition(): void {
             this.x = Math.random() * crc2.canvas.width;
             this.y = 0;
             this.radius = Math.random() * 12;
-        }
+        }*/
+        
+        setColor(): void {
+            this.color = "rgb(204, 102, 0)";
+            }
 
         move(): void {
-            this.x += 0;
+           this.x += 0;
             /*this.y += 2;
             if (this.y < 0) {
                 this.y = 0;
@@ -31,6 +41,9 @@ namespace Aufgabe11 {
             }
             
             }
+        
+        
+
 
         draw(): void {
             crc2.beginPath();

@@ -6,14 +6,20 @@ namespace Aufgabe11 {
         y: number;
         radius: number;*/
 
-        constructor(_color: string) {
-            super(_color);
+        constructor() {
+            super();
+            this.setRandomPosition();
+            this.setColor();
         }
 
         setRandomPosition(): void {
             this.x = (740);
             this.y = Math.random() * 625;
             this.radius = Math.random() * 10;
+            }
+        
+        setColor(): void {
+            this.color = "rgb(230, 255, 247)";
             }
         
         move(): void {

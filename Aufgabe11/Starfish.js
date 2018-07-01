@@ -3,12 +3,17 @@ var Aufgabe11;
     class Starfish extends Aufgabe11.MovingObject {
         //x: number;
         //y: number;
-        constructor(_color) {
-            super(_color);
+        constructor() {
+            super();
+            this.setRandomPosition();
+            this.setColor();
         }
         setRandomPosition() {
             this.x = (460);
             this.y = (690);
+        }
+        setColor() {
+            this.color = "rgb(255, 51, 255)";
         }
         move() {
             this.x += Math.random() * 2 - 1;

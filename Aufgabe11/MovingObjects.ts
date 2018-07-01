@@ -8,10 +8,12 @@ namespace Aufgabe11 {
         g: number;
         radius: number;
         color: string;
+        stop: number;
 
-        constructor(_color: string) {
-            this.setRandomPosition();
-            this.color = _color;
+        constructor(/*_color: string*/) {
+            //this.setRandomPosition();
+            //this.color = _color;
+            //
             }
             
         setRandomPosition(): void {
