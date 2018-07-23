@@ -5,6 +5,12 @@ var Abschlussaufgabe;
             this.x = 300;
             this.y = 300;
         }
+        checkPosition() {
+        }
+        setRandomPosition() {
+            this.x = Math.random() * Abschlussaufgabe.crc2.canvas.width;
+            this.y = Math.random() * (Abschlussaufgabe.crc2.canvas.height - 200);
+        }
         draw() {
             //Bl�tenbl�tter
             Abschlussaufgabe.crc2.beginPath();

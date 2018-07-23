@@ -5,6 +5,8 @@ namespace Abschlussaufgabe {
         constructor() {
             super();
             this.setColor();
+            this.setRandomPosition();
+            this.points = 4;
            // this.draw();
         }
         

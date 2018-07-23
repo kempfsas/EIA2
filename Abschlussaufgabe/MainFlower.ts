@@ -5,11 +5,21 @@ namespace Abschlussaufgabe {
         y: number;
         radius: number;
         color: string;
+        points: number;
 
         constructor() {
             this.x = 300;
             this.y = 300;
         }
+        
+        checkPosition(): void {
+
+        }
+        
+        setRandomPosition(): void {
+            this.x = Math.random() * crc2.canvas.width;
+            this.y = Math.random() * (crc2.canvas.height - 200);
+            }
 
         draw() {
 
