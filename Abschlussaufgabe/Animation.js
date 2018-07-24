@@ -137,7 +137,7 @@ var Abschlussaufgabe;
     function showScore() {
         Abschlussaufgabe.crc2.font = "30px Comic Sans MS";
         Abschlussaufgabe.crc2.fillStyle = "white";
-        Abschlussaufgabe.crc2.fillText("Score: " + highscore + " Blossoms", 450, 375);
+        Abschlussaufgabe.crc2.fillText("Score: " + highscore + " Blossoms", 400, 375);
     }
     //Alert-Box 1 erscheint, wenn der Timer abgelaufen ist und zeigt gesammelte Bl�ten an
     //Alert-Box 2 erscheint, wenn Alert-Box 1 weggeklickt wurde

@@ -188,7 +188,7 @@ namespace Abschlussaufgabe {
     function showScore(): void {
         crc2.font = "30px Comic Sans MS";
         crc2.fillStyle = "white";
-        crc2.fillText("Score: " + highscore + " Blossoms", 450, 375);
+        crc2.fillText("Score: " + highscore + " Blossoms", 400, 375);
     }
 
     
