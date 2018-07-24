@@ -7,27 +7,6 @@ var Abschlussaufgabe;
             this.x = 100;
             this.y = 100;
         }
-        move() { }
-        moveLeft() {
-            if (this.x > 0) {
-                this.x -= 10;
-            }
-        }
-        moveRight() {
-            if (this.x < Abschlussaufgabe.crc2.canvas.width) {
-                this.x += 10;
-            }
-        }
-        moveUp() {
-            if (this.y > 0) {
-                this.y -= 10;
-            }
-        }
-        moveDown() {
-            if (this.y < Abschlussaufgabe.crc2.canvas.height) {
-                this.y += 10;
-            }
-        }
         draw() {
             //K�rper
             Abschlussaufgabe.crc2.beginPath();
@@ -56,13 +35,30 @@ var Abschlussaufgabe;
             Abschlussaufgabe.crc2.quadraticCurveTo(this.x + 30, this.y, this.x, this.y - 15);
             Abschlussaufgabe.crc2.quadraticCurveTo(this.x - 10, this.y - 40, this.x - 30, this.y - 35);
             Abschlussaufgabe.crc2.quadraticCurveTo(this.x - 30, this.y, this.x, this.y - 15);
-            /*crc2.quadraticCurveTo(110, 120, 130, 125);
-            crc2.quadraticCurveTo(130, 105, 100, 85);
-            crc2.quadraticCurveTo(90, 120, 70, 125);
-            crc2.quadraticCurveTo(70, 105, 100, 85);*/
             Abschlussaufgabe.crc2.closePath();
             Abschlussaufgabe.crc2.stroke();
             Abschlussaufgabe.crc2.fill();
+        }
+        move() { }
+        moveLeft() {
+            if (this.x > 0) {
+                this.x -= 10;
+            }
+        }
+        moveRight() {
+            if (this.x < Abschlussaufgabe.crc2.canvas.width) {
+                this.x += 10;
+            }
+        }
+        moveUp() {
+            if (this.y > 0) {
+                this.y -= 10;
+            }
+        }
+        moveDown() {
+            if (this.y < Abschlussaufgabe.crc2.canvas.height) {
+                this.y += 10;
+            }
         }
         collectedFlowers(_x, _y) {
             if (_x > this.x && _x < (this.x + this.beeAreaOne) && _y > this.y && _y < this.y + this.beeAreaTwo) {

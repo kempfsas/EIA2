@@ -125,9 +125,9 @@ var Abschlussaufgabe;
     }
     //Anzeige des Timers
     function showTimer() {
-        Abschlussaufgabe.crc2.font = "40px Comic Sans MS";
+        Abschlussaufgabe.crc2.font = "30px Comic Sans MS";
         Abschlussaufgabe.crc2.fillStyle = "white";
-        Abschlussaufgabe.crc2.fillText("Time: " + r + " sec.", 60, 550);
+        Abschlussaufgabe.crc2.fillText("Time: " + r + " sec.", 60, 375);
     }
     //Punktestand des Spiels
     function gameScore(score) {
@@ -135,9 +135,9 @@ var Abschlussaufgabe;
     }
     //Angzeige des Punktestandes
     function showScore() {
-        Abschlussaufgabe.crc2.font = "40px Comic Sans MS";
+        Abschlussaufgabe.crc2.font = "30px Comic Sans MS";
         Abschlussaufgabe.crc2.fillStyle = "white";
-        Abschlussaufgabe.crc2.fillText("Score: " + highscore + " Blossoms", 500, 550);
+        Abschlussaufgabe.crc2.fillText("Score: " + highscore + " Blossoms", 450, 375);
     }
     //Alert-Box 1 erscheint, wenn der Timer abgelaufen ist und zeigt gesammelte Bl�ten an
     //Alert-Box 2 erscheint, wenn Alert-Box 1 weggeklickt wurde

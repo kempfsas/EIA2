@@ -15,31 +15,7 @@ namespace Abschlussaufgabe {
         }
         
 
-        move(): void { }
-
-        moveLeft(): void {
-            if (this.x > 0) {
-                this.x -= 10;
-            }
-        }
-
-        moveRight(): void {
-            if (this.x < crc2.canvas.width) {
-                this.x += 10;
-            }
-        }
-
-        moveUp(): void {
-            if (this.y > 0) {
-                this.y -= 10;
-            }
-        }
-
-        moveDown(): void {
-            if (this.y < crc2.canvas.height) {
-                this.y += 10;
-            }
-        }
+       
 
         draw(): void {
 
@@ -74,15 +50,36 @@ namespace Abschlussaufgabe {
             crc2.quadraticCurveTo(this.x - 10, this.y - 40, this.x - 30, this.y - 35);
             crc2.quadraticCurveTo(this.x - 30, this.y, this.x, this.y - 15);
 
-            /*crc2.quadraticCurveTo(110, 120, 130, 125);
-            crc2.quadraticCurveTo(130, 105, 100, 85); 
-            crc2.quadraticCurveTo(90, 120, 70, 125); 
-            crc2.quadraticCurveTo(70, 105, 100, 85);*/
-
             crc2.closePath();
             crc2.stroke();
             crc2.fill();
+        }
+        
+        
+         move(): void { }
 
+        moveLeft(): void {
+            if (this.x > 0) {
+                this.x -= 10;
+            }
+        }
+
+        moveRight(): void {
+            if (this.x < crc2.canvas.width) {
+                this.x += 10;
+            }
+        }
+
+        moveUp(): void {
+            if (this.y > 0) {
+                this.y -= 10;
+            }
+        }
+
+        moveDown(): void {
+            if (this.y < crc2.canvas.height) {
+                this.y += 10;
+            }
         }
         
         collectedFlowers(_x: number, _y: number): boolean {
@@ -92,11 +89,8 @@ namespace Abschlussaufgabe {
             return false;
         }
         
-        /*private collect(): void {
-            let index: number = flowers.indexOf(this.flower);
-            flowers.splice(index, 1);
-            this.flower = null;
-            }*/
+        
+        
 
     }
 

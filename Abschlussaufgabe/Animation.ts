@@ -138,7 +138,6 @@ namespace Abschlussaufgabe {
         }
     }
     
-
     
     //Steuerung der Biene auf Tablet und Smartphone
     function moveByTouch(_event: TouchEvent): void {
@@ -173,9 +172,9 @@ namespace Abschlussaufgabe {
 
     //Anzeige des Timers
     function showTimer(): void {
-        crc2.font = "40px Comic Sans MS";
+        crc2.font = "30px Comic Sans MS";
         crc2.fillStyle = "white";
-        crc2.fillText("Time: " + r + " sec.", 60, 550);
+        crc2.fillText("Time: " + r + " sec.", 60, 375);
 
     }
 
@@ -187,9 +186,9 @@ namespace Abschlussaufgabe {
 
     //Angzeige des Punktestandes
     function showScore(): void {
-        crc2.font = "40px Comic Sans MS";
+        crc2.font = "30px Comic Sans MS";
         crc2.fillStyle = "white";
-        crc2.fillText("Score: " + highscore + " Blossoms", 500, 550);
+        crc2.fillText("Score: " + highscore + " Blossoms", 450, 375);
     }
 
     
