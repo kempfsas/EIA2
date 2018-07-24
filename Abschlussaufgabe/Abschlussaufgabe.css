@@ -1,6 +1,31 @@
 /*Festlegung der unterschiedlichen Bildschirmgrößen*/
 /*Beginnend mit der kleinsten Bildschirmgröße*/
 
+/*.alert {
+    padding: 20px;
+    background-color: #6b8e23;
+    color: white;
+    position: fixed;
+    width: 300px;
+    height: flexible;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+
+
 
 @media screen and (min-width:16em) {
 	body canvas {
@@ -8,7 +33,7 @@
 		height: 100%;
 		max-height: display;
 	}
-}
+}*/
 
 
 @media screen and (min-width:35.625em) {
