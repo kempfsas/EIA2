@@ -101,13 +101,13 @@ var Abschlussaufgabe;
     }
     //Steuerung der Biene auf Tablet und Smartphone
     function moveByTouch(_event) {
-        if (_event.changedTouches[0].clientX < Abschlussaufgabe.crc2.canvas.clientWidth) {
+        if (_event.changedTouches[0].clientX < Abschlussaufgabe.crc2.canvas.clientWidth / 2) {
             player.moveLeft();
         }
         else {
             player.moveRight();
         }
-        if (_event.changedTouches[0].clientY < Abschlussaufgabe.crc2.canvas.clientHeight) {
+        if (_event.changedTouches[0].clientY < Abschlussaufgabe.crc2.canvas.clientHeight / 2) {
             player.moveUp();
         }
         else {

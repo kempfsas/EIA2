@@ -141,13 +141,13 @@ namespace Abschlussaufgabe {
     
     //Steuerung der Biene auf Tablet und Smartphone
     function moveByTouch(_event: TouchEvent): void {
-        if (_event.changedTouches[0].clientX < crc2.canvas.clientWidth) {
+        if (_event.changedTouches[0].clientX < crc2.canvas.clientWidth / 2) {
             player.moveLeft();
         } else {
             player.moveRight();   
         }
         
-        if (_event.changedTouches[0].clientY < crc2.canvas.clientHeight) {
+        if (_event.changedTouches[0].clientY < crc2.canvas.clientHeight / 2) {
             player.moveUp();
             } else {
                 player.moveDown();    
