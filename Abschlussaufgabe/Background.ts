@@ -23,5 +23,5 @@ namespace Abschlussaufgabe {
         crc2.fillStyle = "#97b065";
         crc2.fillText("Busy Bee", 120, 300);
         }
-
+    
 }
