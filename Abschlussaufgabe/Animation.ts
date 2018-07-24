@@ -147,7 +147,7 @@ namespace Abschlussaufgabe {
             player.moveRight();   
         }
         
-        if (_event.changedTouches[0].clientY < crc2.canvas.clientHeight / 2) {
+        if (_event.changedTouches[0].clientY < crc2.canvas.clientHeight) {
             player.moveUp();
             } else {
                 player.moveDown();    

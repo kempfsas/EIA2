@@ -107,7 +107,7 @@ var Abschlussaufgabe;
         else {
             player.moveRight();
         }
-        if (_event.changedTouches[0].clientY < Abschlussaufgabe.crc2.canvas.clientHeight / 2) {
+        if (_event.changedTouches[0].clientY < Abschlussaufgabe.crc2.canvas.clientHeight) {
             player.moveUp();
         }
         else {
