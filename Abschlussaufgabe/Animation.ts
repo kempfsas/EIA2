@@ -14,7 +14,7 @@ namespace Abschlussaufgabe {
 
     let highscore: number = 0; //Score steht zu Beginn auf 0
     
-    
+     
 
     function init(_event: Event): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
@@ -138,6 +138,8 @@ namespace Abschlussaufgabe {
         }
     }
     
+
+    
     //Steuerung der Biene auf Tablet und Smartphone
     function moveByTouch(_event: TouchEvent): void {
         if (_event.changedTouches[0].clientX = crc2.canvas.clientWidth / 2) {
@@ -152,6 +154,7 @@ namespace Abschlussaufgabe {
                 player.moveDown();    
         }
     }
+    
 
     
 
