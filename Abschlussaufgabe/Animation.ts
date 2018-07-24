@@ -172,9 +172,9 @@ namespace Abschlussaufgabe {
 
     //Anzeige des Timers
     function showTimer(): void {
-        crc2.font = "30px Comic Sans MS";
+        crc2.font = "35px Comic Sans MS";
         crc2.fillStyle = "white";
-        crc2.fillText("Time: " + r + " sec.", 60, 375);
+        crc2.fillText("Time: " + r + " sec.", 60, 550);
 
     }
 
@@ -186,9 +186,9 @@ namespace Abschlussaufgabe {
 
     //Angzeige des Punktestandes
     function showScore(): void {
-        crc2.font = "30px Comic Sans MS";
+        crc2.font = "35px Comic Sans MS";
         crc2.fillStyle = "white";
-        crc2.fillText("Score: " + highscore + " Blossoms", 400, 375);
+        crc2.fillText("Score: " + highscore + " Blossoms", 475, 550);
     }
 
     
