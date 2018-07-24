@@ -1,5 +1,6 @@
 /*Festlegung der unterschiedlichen Bildschirmgrößen*/
 /*Beginnend mit der kleinsten Bildschirmgröße*/
+
 @media screen and (min-width:16em) {
 	body canvas {
 		width: 100%;
