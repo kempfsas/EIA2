@@ -3,6 +3,7 @@ namespace Abschlussaufgabe {
     export function hintergrund(): void {
 
         background();
+        gameName();
 
 
     }
@@ -16,4 +17,11 @@ namespace Abschlussaufgabe {
         crc2.fillRect(0, 0, 1000, 700);
 
     }
+    
+     function gameName(): void {
+        crc2.font = "150px Indie Flower";
+        crc2.fillStyle = "#97b065";
+        crc2.fillText("Busy Bee", 120, 300);
+        }
+
 }

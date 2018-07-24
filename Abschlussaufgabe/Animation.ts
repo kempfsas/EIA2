@@ -190,6 +190,7 @@ namespace Abschlussaufgabe {
         crc2.fillStyle = "white";
         crc2.fillText("Score: " + highscore + " Blossoms", 475, 550);
     }
+    
 
     
 
