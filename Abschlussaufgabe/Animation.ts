@@ -2,19 +2,19 @@ namespace Abschlussaufgabe {
     window.addEventListener("load", init);
     export let crc2: CanvasRenderingContext2D;
 
-    export let flowers: MainFlower[] = [];
+    export let flowers: MainFlower[] = []; //Gesammelte Blumen werden in dieses Array gespeichert
 
-    //let player: Bee[] = [];
-    let n: number = 1;
-    let m: number = 5;
     let r: number = 61; //für den Timer
+
     let imgData: ImageData;
 
     let player: Bee = new Bee();
 
-    let audio = new Audio("GameMusic3.mp3");
+    let audio = new Audio("GameMusic3.mp3"); //Spielemusik
 
-    let highscore: number = 0;
+    let highscore: number = 0; //Score steht zu Beginn auf 0
+    
+    
 
     function init(_event: Event): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
@@ -28,25 +28,14 @@ namespace Abschlussaufgabe {
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
         console.log(imgData);
 
-        window.addEventListener('keydown', flyingBee);
+        window.addEventListener('keydown', flyingBee); //EventListener für Pfeiltasten
+        
+        window.addEventListener('touchmove', moveByTouch);
 
-        /*for (let i: number = 0; i < m; i++) {
-            let purple: PurpleFlower = new PurpleFlower;
-            flowers.push(purple);
-        }*/
 
-        /*for (let i: number = 0; i < n; i++) {
-            let bees: Bee = new Bee();
-            bees.x = (740);
-            bees.y = Math.random() * 625;
-            bees.radius = Math.random() * 10;
-
-            player.push(bees);
-        }*/
-
-        audio.loop = true;
-        audio.play();
-        animate();
+        audio.loop = true; //Damit Musik sich wiederholt
+        audio.play(); //Abspielen der Musik
+        animate(); //Funktionsaufruf für "animate"
         checkPosition();
         createFlowers();
         createTimer();
@@ -54,7 +43,7 @@ namespace Abschlussaufgabe {
 
 
 
-
+    //Funktion für die Animation
     function animate(): void {
         window.setTimeout(animate, 10);
 
@@ -65,20 +54,29 @@ namespace Abschlussaufgabe {
         drawObjects();
     }
 
-    function checkPosition(): void {
-        window.setTimeout(checkPosition, 10);
-        for (let i: number = 0; i < flowers.length; i++) {
-            let flower = flowers[i];
-            let collected = player.collectedFlowers(flower.x, flower.y);
 
-            if (collected) {
-                flowers.splice(i, 1);
-                //this.flower = null;
-                gameScore(flower.points);
-            }
+    function moveObjects(): void {
+
+        for (let i: number = 0; i < flowers.length; i++) {
+            flowers[i].checkPosition();
         }
     }
 
+
+    //Objekte zeichnen
+    function drawObjects(): void {
+        for (let i: number = 0; i < flowers.length; i++)
+            flowers[i].draw();
+
+        player.draw(); //Biene wird gezeichnet
+        showTimer(); //Timer wird gezeichnet
+        showScore(); //Score wird gezeichnet
+        gameEnd(); //Alert-Box
+    }
+
+    
+
+    //Blumen werden random erstellt
     function createFlowers(): void {
         window.setTimeout(createFlowers, 2500);
 
@@ -104,6 +102,27 @@ namespace Abschlussaufgabe {
     }
 
 
+
+    //Kontrolle der Position der Biene. 
+    //Hat sie die selbe Position wie die Blume, verschwindet die Blume durch das splice
+    function checkPosition(): void {
+        window.setTimeout(checkPosition, 10);
+        for (let i: number = 0; i < flowers.length; i++) {
+            let flower = flowers[i];
+            let collected = player.collectedFlowers(flower.x, flower.y);
+
+            if (collected) {
+                flowers.splice(i, 1);
+                //this.flower = null;
+                gameScore(flower.score);
+            }
+        }
+    }
+
+
+
+
+    //Pfeiltasten für das Bewegen der Biene am PC
     function flyingBee(_event: KeyboardEvent): void {
         if (_event.key == "ArrowLeft") {
             player.moveLeft();
@@ -118,36 +137,26 @@ namespace Abschlussaufgabe {
             player.moveDown();
         }
     }
-
-
-
-
-
-
-
-    function moveObjects(): void {
-
-        /*for (let i: number = 0; i < player.length; i++) {
-            player[i].move();
+    
+    //Steuerung der Biene auf Tablet und Smartphone
+    function moveByTouch(_event: TouchEvent): void {
+        if (_event.changedTouches[0].clientX < crc2.canvas.clientWidth / 2) {
+            player.moveLeft();
+        } else {
+            player.moveRight();   
+        }
         
-        }*/
-
-        for (let i: number = 0; i < flowers.length; i++) {
-            flowers[i].checkPosition();
+        if (_event.changedTouches[0].clientY < crc2.canvas.clientHeight / 2) {
+            player.moveUp();
+            } else {
+                player.moveDown();    
         }
     }
-
-    function drawObjects(): void {
-        for (let i: number = 0; i < flowers.length; i++)
-            flowers[i].draw();
-
-        player.draw();
-        showTimer();
-        showScore();
-        gameEnd();
-    }
+    
 
 
+
+    //Timer 
     function createTimer(): void {
         console.log("setTimer");
         setInterval(function() {
@@ -158,6 +167,7 @@ namespace Abschlussaufgabe {
         );
     }
 
+    //Anzeige des Timers
     function showTimer(): void {
         crc2.font = "40px Comic Sans MS";
         crc2.fillStyle = "white";
@@ -165,20 +175,30 @@ namespace Abschlussaufgabe {
 
     }
 
-    function gameScore(points: number): void {
-        highscore += points;
+
+    //Punktestand des Spiels
+    function gameScore(score: number): void {
+        highscore += score;
     }
 
+    //Angzeige des Punktestandes
     function showScore(): void {
         crc2.font = "40px Comic Sans MS";
         crc2.fillStyle = "white";
-        crc2.fillText("Score: " + highscore + " Points", 500, 550);
+        crc2.fillText("Score: " + highscore + " Blossoms", 500, 550);
     }
 
 
+
+    //Alert-Box 1 erscheint, wenn der Timer abgelaufen ist und zeigt gesammelte Blüten an
+    //Alert-Box 2 erscheint, wenn Alert-Box 1 weggeklickt wurde
     function gameEnd(): void {
         if (r <= 0) {
-            alert("Game's over! You've collected " + highscore + " Points");
+            alert("Bsssss game's over! You've collected " + highscore + " blossoms");
+            alert("Click okay for playing Busy Bee again");
+            highscore = 0;
+            r = 61;
+            
         }
     }
 

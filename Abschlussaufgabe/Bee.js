@@ -70,11 +70,6 @@ var Abschlussaufgabe;
             }
             return false;
         }
-        collect() {
-            let index = Abschlussaufgabe.flowers.indexOf(this.flower);
-            Abschlussaufgabe.flowers.splice(index, 1);
-            this.flower = null;
-        }
     }
     Abschlussaufgabe.Bee = Bee;
 })(Abschlussaufgabe || (Abschlussaufgabe = {}));

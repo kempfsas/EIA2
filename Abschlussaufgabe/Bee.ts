@@ -92,11 +92,11 @@ namespace Abschlussaufgabe {
             return false;
         }
         
-        private collect(): void {
+        /*private collect(): void {
             let index: number = flowers.indexOf(this.flower);
             flowers.splice(index, 1);
             this.flower = null;
-            }
+            }*/
 
     }
 

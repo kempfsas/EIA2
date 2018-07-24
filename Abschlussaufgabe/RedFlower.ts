@@ -6,7 +6,7 @@ namespace Abschlussaufgabe {
             super();
             this.setColor();
             this.setRandomPosition();
-            this.points = 2;
+            this.score = 2;
            // this.draw();
         }
         

@@ -1,15 +1,12 @@
 var Abschlussaufgabe;
 (function (Abschlussaufgabe) {
     window.addEventListener("load", init);
-    Abschlussaufgabe.flowers = [];
-    //let player: Bee[] = [];
-    let n = 1;
-    let m = 5;
+    Abschlussaufgabe.flowers = []; //Gesammelte Blumen werden in dieses Array gespeichert
     let r = 61; //f�r den Timer
     let imgData;
     let player = new Abschlussaufgabe.Bee();
-    let audio = new Audio("GameMusic3.mp3");
-    let highscore = 0;
+    let audio = new Audio("GameMusic3.mp3"); //Spielemusik
+    let highscore = 0; //Score steht zu Beginn auf 0
     function init(_event) {
         let canvas = document.getElementsByTagName("canvas")[0];
         Abschlussaufgabe.crc2 = canvas.getContext("2d");
@@ -19,26 +16,16 @@ var Abschlussaufgabe;
         //Speichern des Bildes, damit es nicht jedes mal neu gezeichnet werden muss:
         imgData = Abschlussaufgabe.crc2.getImageData(0, 0, canvas.width, canvas.height);
         console.log(imgData);
-        window.addEventListener('keydown', flyingBee);
-        /*for (let i: number = 0; i < m; i++) {
-            let purple: PurpleFlower = new PurpleFlower;
-            flowers.push(purple);
-        }*/
-        /*for (let i: number = 0; i < n; i++) {
-            let bees: Bee = new Bee();
-            bees.x = (740);
-            bees.y = Math.random() * 625;
-            bees.radius = Math.random() * 10;
-
-            player.push(bees);
-        }*/
-        audio.loop = true;
-        audio.play();
-        animate();
+        window.addEventListener('keydown', flyingBee); //EventListener f�r Pfeiltasten
+        window.addEventListener('touchmove', moveByTouch);
+        audio.loop = true; //Damit Musik sich wiederholt
+        audio.play(); //Abspielen der Musik
+        animate(); //Funktionsaufruf f�r "animate"
         checkPosition();
         createFlowers();
         createTimer();
     }
+    //Funktion f�r die Animation
     function animate() {
         window.setTimeout(animate, 10);
         //crc2.clearRect(0, 0, crc2.canvas.width, crc2.canvas.height);
@@ -46,18 +33,21 @@ var Abschlussaufgabe;
         moveObjects();
         drawObjects();
     }
-    function checkPosition() {
-        window.setTimeout(checkPosition, 10);
+    function moveObjects() {
         for (let i = 0; i < Abschlussaufgabe.flowers.length; i++) {
-            let flower = Abschlussaufgabe.flowers[i];
-            let collected = player.collectedFlowers(flower.x, flower.y);
-            if (collected) {
-                Abschlussaufgabe.flowers.splice(i, 1);
-                //this.flower = null;
-                gameScore(flower.points);
-            }
+            Abschlussaufgabe.flowers[i].checkPosition();
         }
     }
+    //Objekte zeichnen
+    function drawObjects() {
+        for (let i = 0; i < Abschlussaufgabe.flowers.length; i++)
+            Abschlussaufgabe.flowers[i].draw();
+        player.draw(); //Biene wird gezeichnet
+        showTimer(); //Timer wird gezeichnet
+        showScore(); //Score wird gezeichnet
+        gameEnd(); //Alert-Box
+    }
+    //Blumen werden random erstellt
     function createFlowers() {
         window.setTimeout(createFlowers, 2500);
         let p = Math.floor(Math.random() * 4);
@@ -80,6 +70,21 @@ var Abschlussaufgabe;
                 break;
         }
     }
+    //Kontrolle der Position der Biene. 
+    //Hat sie die selbe Position wie die Blume, verschwindet die Blume durch das splice
+    function checkPosition() {
+        window.setTimeout(checkPosition, 10);
+        for (let i = 0; i < Abschlussaufgabe.flowers.length; i++) {
+            let flower = Abschlussaufgabe.flowers[i];
+            let collected = player.collectedFlowers(flower.x, flower.y);
+            if (collected) {
+                Abschlussaufgabe.flowers.splice(i, 1);
+                //this.flower = null;
+                gameScore(flower.score);
+            }
+        }
+    }
+    //Pfeiltasten f�r das Bewegen der Biene am PC
     function flyingBee(_event) {
         if (_event.key == "ArrowLeft") {
             player.moveLeft();
@@ -94,23 +99,22 @@ var Abschlussaufgabe;
             player.moveDown();
         }
     }
-    function moveObjects() {
-        /*for (let i: number = 0; i < player.length; i++) {
-            player[i].move();
-        
-        }*/
-        for (let i = 0; i < Abschlussaufgabe.flowers.length; i++) {
-            Abschlussaufgabe.flowers[i].checkPosition();
+    //Steuerung der Biene auf Tablet und Smartphone
+    function moveByTouch(_event) {
+        if (_event.changedTouches[0].clientX < Abschlussaufgabe.crc2.canvas.clientWidth / 2) {
+            player.moveLeft();
+        }
+        else {
+            player.moveRight();
+        }
+        if (_event.changedTouches[0].clientY < Abschlussaufgabe.crc2.canvas.clientHeight / 2) {
+            player.moveUp();
+        }
+        else {
+            player.moveDown();
         }
     }
-    function drawObjects() {
-        for (let i = 0; i < Abschlussaufgabe.flowers.length; i++)
-            Abschlussaufgabe.flowers[i].draw();
-        player.draw();
-        showTimer();
-        showScore();
-        gameEnd();
-    }
+    //Timer 
     function createTimer() {
         console.log("setTimer");
         setInterval(function () {
@@ -119,22 +123,30 @@ var Abschlussaufgabe;
             }
         }, 1000);
     }
+    //Anzeige des Timers
     function showTimer() {
         Abschlussaufgabe.crc2.font = "40px Comic Sans MS";
         Abschlussaufgabe.crc2.fillStyle = "white";
         Abschlussaufgabe.crc2.fillText("Time: " + r + " sec.", 60, 550);
     }
-    function gameScore(points) {
-        highscore += points;
+    //Punktestand des Spiels
+    function gameScore(score) {
+        highscore += score;
     }
+    //Angzeige des Punktestandes
     function showScore() {
         Abschlussaufgabe.crc2.font = "40px Comic Sans MS";
         Abschlussaufgabe.crc2.fillStyle = "white";
-        Abschlussaufgabe.crc2.fillText("Score: " + highscore + " Points", 500, 550);
+        Abschlussaufgabe.crc2.fillText("Score: " + highscore + " Blossoms", 500, 550);
     }
+    //Alert-Box 1 erscheint, wenn der Timer abgelaufen ist und zeigt gesammelte Bl�ten an
+    //Alert-Box 2 erscheint, wenn Alert-Box 1 weggeklickt wurde
     function gameEnd() {
         if (r <= 0) {
-            alert("Game's over! You've collected " + highscore + " Points");
+            alert("Bsssss game's over! You've collected " + highscore + " blossoms");
+            alert("Click okay for playing Busy Bee again");
+            highscore = 0;
+            r = 61;
         }
     }
 })(Abschlussaufgabe || (Abschlussaufgabe = {}));
