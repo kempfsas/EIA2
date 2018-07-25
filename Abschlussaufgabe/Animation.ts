@@ -30,7 +30,7 @@ namespace Abschlussaufgabe {
 
         window.addEventListener('keydown', flyingBee); //EventListener für Pfeiltasten
         
-        window.addEventListener('touchmove', moveByTouch);
+        window.addEventListener('touchstart', moveByTouch);
 
 
         audio.loop = true; //Damit Musik sich wiederholt
@@ -140,7 +140,7 @@ namespace Abschlussaufgabe {
     
     
     //Steuerung der Biene auf Tablet und Smartphone
-    function moveByTouch(_event: TouchEvent): void {
+   /* function moveByTouch(_event: TouchEvent): void {
         if (_event.changedTouches[0].clientX < crc2.canvas.clientWidth / 2) {
             player.moveLeft();
         } else {
@@ -152,9 +152,18 @@ namespace Abschlussaufgabe {
             } else {
                 player.moveDown();    
         }
-    }
+    } */
     
-
+    function moveByTouch(_event: TouchEvent): void {
+        if (_event.changedTouches[0].clientX < crc2.canvas.clientWidth / 2) {
+        player.moveLeft();    
+        }
+        if (_event.changedTouches[0].clientY < crc2.canvas.clientHeight / 2) {
+            player.moveUp();
+            } else {
+                player.moveDown();    
+        }
+    }
     
 
 

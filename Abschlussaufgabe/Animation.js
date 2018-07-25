@@ -17,7 +17,7 @@ var Abschlussaufgabe;
         imgData = Abschlussaufgabe.crc2.getImageData(0, 0, canvas.width, canvas.height);
         console.log(imgData);
         window.addEventListener('keydown', flyingBee); //EventListener f�r Pfeiltasten
-        window.addEventListener('touchmove', moveByTouch);
+        window.addEventListener('touchstart', moveByTouch);
         audio.loop = true; //Damit Musik sich wiederholt
         audio.play(); //Abspielen der Musik
         animate(); //Funktionsaufruf f�r "animate"
@@ -100,12 +100,22 @@ var Abschlussaufgabe;
         }
     }
     //Steuerung der Biene auf Tablet und Smartphone
+    /* function moveByTouch(_event: TouchEvent): void {
+         if (_event.changedTouches[0].clientX < crc2.canvas.clientWidth / 2) {
+             player.moveLeft();
+         } else {
+             player.moveRight();
+         }
+         
+         if (_event.changedTouches[0].clientY < crc2.canvas.clientHeight / 2) {
+             player.moveUp();
+             } else {
+                 player.moveDown();
+         }
+     } */
     function moveByTouch(_event) {
         if (_event.changedTouches[0].clientX < Abschlussaufgabe.crc2.canvas.clientWidth / 2) {
             player.moveLeft();
-        }
-        else {
-            player.moveRight();
         }
         if (_event.changedTouches[0].clientY < Abschlussaufgabe.crc2.canvas.clientHeight / 2) {
             player.moveUp();
