@@ -18,6 +18,7 @@ var Abschlussaufgabe;
         console.log(imgData);
         window.addEventListener('keydown', flyingBee); //EventListener f�r Pfeiltasten
         window.addEventListener('touchstart', moveByTouch);
+        window.addEventListener('touchend', moveByRelease);
         audio.loop = true; //Damit Musik sich wiederholt
         audio.play(); //Abspielen der Musik
         animate(); //Funktionsaufruf f�r "animate"
@@ -114,15 +115,22 @@ var Abschlussaufgabe;
          }
      } */
     function moveByTouch(_event) {
-        if (_event.changedTouches[0].clientX < Abschlussaufgabe.crc2.canvas.clientWidth / 2) {
-            player.moveLeft();
+        /*if (_event.changedTouches[0].clientX < crc2.canvas.clientWidth / 2) {
+        player.moveLeft();
         }
-        if (_event.changedTouches[0].clientY < Abschlussaufgabe.crc2.canvas.clientHeight / 2) {
+        if (_event.changedTouches[0].clientY < crc2.canvas.clientHeight / 2) {
             player.moveUp();
-        }
-        else {
-            player.moveDown();
-        }
+            } else {
+                player.moveDown();
+        }*/
+        let dx = _event.changedTouches[0].clientX - this.player.x;
+        let dy = _event.changedTouches[0].clientY - this.player.y;
+        return Math.sqrt(dx * dx + dy * dy);
+    }
+    function moveByRelease(_event) {
+        let distance = this.moveByTouch();
+        if (distance < this.moveByTouch)
+            this.moveByTouch();
     }
     //Timer 
     function createTimer() {
