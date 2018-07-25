@@ -17,7 +17,7 @@ var Abschlussaufgabe;
         imgData = Abschlussaufgabe.crc2.getImageData(0, 0, canvas.width, canvas.height);
         console.log(imgData);
         window.addEventListener('keydown', flyingBee); //EventListener f�r Pfeiltasten
-        window.addEventListener('touchstart', moveByTouch);
+        //window.addEventListener('touchstart', moveByTouch);
         window.addEventListener('touchmove', function (_event) {
             if (_event.changedTouches[0].clientX < Abschlussaufgabe.crc2.canvas.clientWidth / 2) {
                 player.moveLeft();
@@ -127,17 +127,6 @@ var Abschlussaufgabe;
                  player.moveDown();
          }
      } */
-    function moveByTouch(_event) {
-        if (_event.changedTouches[0].clientX < Abschlussaufgabe.crc2.canvas.clientWidth / 2) {
-            player.moveLeft();
-        }
-        if (_event.changedTouches[0].clientY < Abschlussaufgabe.crc2.canvas.clientHeight / 2) {
-            player.moveUp();
-        }
-        else {
-            player.moveDown();
-        }
-    }
     //Timer 
     function createTimer() {
         console.log("setTimer");

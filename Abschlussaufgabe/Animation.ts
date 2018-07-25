@@ -30,7 +30,7 @@ namespace Abschlussaufgabe {
 
         window.addEventListener('keydown', flyingBee); //EventListener für Pfeiltasten
         
-        window.addEventListener('touchstart', moveByTouch);
+        //window.addEventListener('touchstart', moveByTouch);
         
         window.addEventListener('touchmove', function(_event: TouchEvent) {
             
@@ -172,16 +172,7 @@ namespace Abschlussaufgabe {
         }
     } */
     
-    function moveByTouch(_event: TouchEvent): void {
-        if (_event.changedTouches[0].clientX < crc2.canvas.clientWidth / 2) {
-        player.moveLeft();    
-        }
-        if (_event.changedTouches[0].clientY < crc2.canvas.clientHeight / 2) {
-            player.moveUp();
-            } else {
-                player.moveDown();    
-        }
-}
+
 
 
 
