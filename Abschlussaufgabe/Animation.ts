@@ -13,8 +13,8 @@ namespace Abschlussaufgabe {
     let audio = new Audio("GameMusic3.mp3"); //Spielemusik
 
     let highscore: number = 0; //Score steht zu Beginn auf 0
-    
-     
+
+
 
     function init(_event: Event): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
@@ -28,27 +28,10 @@ namespace Abschlussaufgabe {
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
         console.log(imgData);
 
-        window.addEventListener('keydown', flyingBee); //EventListener für Pfeiltasten
-        
+        //window.addEventListener('keydown', flyingBee); //EventListener für Pfeiltasten
+
         //window.addEventListener('touchstart', moveByTouch);
-        
-        window.addEventListener('touchmove', function(_event: TouchEvent) {
-            
-            
-           if (_event.changedTouches[0].clientX < crc2.canvas.clientWidth / 2) {
-            player.moveLeft();
-        } else {
-            player.moveRight();   
-        }
-        
-        if (_event.changedTouches[0].clientY < crc2.canvas.clientHeight / 2) {
-            player.moveUp();
-            } else {
-                player.moveDown();    
-        }
-            
-        }, false);
-        
+
 
 
         audio.loop = true; //Damit Musik sich wiederholt
@@ -92,7 +75,7 @@ namespace Abschlussaufgabe {
         gameEnd(); //Alert-Box
     }
 
-    
+
 
     //Blumen werden random erstellt
     function createFlowers(): void {
@@ -139,39 +122,56 @@ namespace Abschlussaufgabe {
 
 
 
-
-    //Pfeiltasten für das Bewegen der Biene am PC
-    function flyingBee(_event: KeyboardEvent): void {
-        if (_event.key == "ArrowLeft") {
-            player.moveLeft();
-        }
-        if (_event.key == "ArrowRight") {
-            player.moveRight();
-        }
-        if (_event.key == "ArrowUp") {
+    window.addEventListener('keydown', function flyingBee(_e: KeyboardEvent): void {
+        if (_e.key == "ArrowUp") {
             player.moveUp();
         }
-        if (_event.key == "ArrowDown") {
+        if (_e.key == "ArrowDown") {
             player.moveDown();
         }
-    }
-    
-    
-    //Steuerung der Biene auf Tablet und Smartphone
-   /* function moveByTouch(_event: TouchEvent): void {
-        if (_event.changedTouches[0].clientX < crc2.canvas.clientWidth / 2) {
+
+        if (_e.key == "ArrowLeft") {
+            player.moveLeft();
+        }
+        if (_e.key == "ArrowRight") {
+            player.moveRight();
+        }
+
+    }, false);
+
+
+    window.addEventListener('touchmove', function(_e: TouchEvent) {
+
+
+        if (_e.changedTouches[0].clientX < crc2.canvas.clientWidth / 2) {
             player.moveLeft();
         } else {
-            player.moveRight();   
+            player.moveRight();
         }
-        
-        if (_event.changedTouches[0].clientY < crc2.canvas.clientHeight / 2) {
+
+        if (_e.changedTouches[0].clientY < crc2.canvas.clientHeight / 2) {
             player.moveUp();
-            } else {
-                player.moveDown();    
+        } else {
+            player.moveDown();
         }
-    } */
-    
+
+    }, false);
+
+
+    //Steuerung der Biene auf Tablet und Smartphone
+    /* function moveByTouch(_event: TouchEvent): void {
+         if (_event.changedTouches[0].clientX < crc2.canvas.clientWidth / 2) {
+             player.moveLeft();
+         } else {
+             player.moveRight();   
+         }
+         
+         if (_event.changedTouches[0].clientY < crc2.canvas.clientHeight / 2) {
+             player.moveUp();
+             } else {
+                 player.moveDown();    
+         }   } */
+
 
 
 
@@ -207,9 +207,9 @@ namespace Abschlussaufgabe {
         crc2.fillStyle = "white";
         crc2.fillText("Score: " + highscore + " Blossoms", 475, 550);
     }
-    
 
-    
+
+
 
 
     //Alert-Box 1 erscheint, wenn der Timer abgelaufen ist und zeigt gesammelte Blüten an
@@ -220,7 +220,7 @@ namespace Abschlussaufgabe {
             alert("Click okay for playing Busy Bee again");
             highscore = 0;
             r = 61;
-            
+
         }
     }
 

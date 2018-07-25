@@ -16,22 +16,8 @@ var Abschlussaufgabe;
         //Speichern des Bildes, damit es nicht jedes mal neu gezeichnet werden muss:
         imgData = Abschlussaufgabe.crc2.getImageData(0, 0, canvas.width, canvas.height);
         console.log(imgData);
-        window.addEventListener('keydown', flyingBee); //EventListener f�r Pfeiltasten
+        //window.addEventListener('keydown', flyingBee); //EventListener f�r Pfeiltasten
         //window.addEventListener('touchstart', moveByTouch);
-        window.addEventListener('touchmove', function (_event) {
-            if (_event.changedTouches[0].clientX < Abschlussaufgabe.crc2.canvas.clientWidth / 2) {
-                player.moveLeft();
-            }
-            else {
-                player.moveRight();
-            }
-            if (_event.changedTouches[0].clientY < Abschlussaufgabe.crc2.canvas.clientHeight / 2) {
-                player.moveUp();
-            }
-            else {
-                player.moveDown();
-            }
-        }, false);
         audio.loop = true; //Damit Musik sich wiederholt
         audio.play(); //Abspielen der Musik
         animate(); //Funktionsaufruf f�r "animate"
@@ -98,21 +84,34 @@ var Abschlussaufgabe;
             }
         }
     }
-    //Pfeiltasten f�r das Bewegen der Biene am PC
-    function flyingBee(_event) {
-        if (_event.key == "ArrowLeft") {
-            player.moveLeft();
-        }
-        if (_event.key == "ArrowRight") {
-            player.moveRight();
-        }
-        if (_event.key == "ArrowUp") {
+    window.addEventListener('keydown', function flyingBee(_e) {
+        if (_e.key == "ArrowUp") {
             player.moveUp();
         }
-        if (_event.key == "ArrowDown") {
+        if (_e.key == "ArrowDown") {
             player.moveDown();
         }
-    }
+        if (_e.key == "ArrowLeft") {
+            player.moveLeft();
+        }
+        if (_e.key == "ArrowRight") {
+            player.moveRight();
+        }
+    }, false);
+    window.addEventListener('touchmove', function (_e) {
+        if (_e.changedTouches[0].clientX < Abschlussaufgabe.crc2.canvas.clientWidth / 2) {
+            player.moveLeft();
+        }
+        else {
+            player.moveRight();
+        }
+        if (_e.changedTouches[0].clientY < Abschlussaufgabe.crc2.canvas.clientHeight / 2) {
+            player.moveUp();
+        }
+        else {
+            player.moveDown();
+        }
+    }, false);
     //Steuerung der Biene auf Tablet und Smartphone
     /* function moveByTouch(_event: TouchEvent): void {
          if (_event.changedTouches[0].clientX < crc2.canvas.clientWidth / 2) {
@@ -125,8 +124,7 @@ var Abschlussaufgabe;
              player.moveUp();
              } else {
                  player.moveDown();
-         }
-     } */
+         }   } */
     //Timer 
     function createTimer() {
         console.log("setTimer");
