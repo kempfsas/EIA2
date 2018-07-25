@@ -32,7 +32,23 @@ namespace Abschlussaufgabe {
         
         window.addEventListener('touchstart', moveByTouch);
         
-        window.addEventListener('touchend', moveByRelease);
+        window.addEventListener('touchmove', function(_event: TouchEvent) {
+            
+            
+           if (_event.changedTouches[0].clientX < crc2.canvas.clientWidth / 2) {
+            player.moveLeft();
+        } else {
+            player.moveRight();   
+        }
+        
+        if (_event.changedTouches[0].clientY < crc2.canvas.clientHeight / 2) {
+            player.moveUp();
+            } else {
+                player.moveDown();    
+        }
+            
+        }, false);
+        
 
 
         audio.loop = true; //Damit Musik sich wiederholt
@@ -156,29 +172,16 @@ namespace Abschlussaufgabe {
         }
     } */
     
-    function moveByTouch(_event: TouchEvent): number {
-        /*if (_event.changedTouches[0].clientX < crc2.canvas.clientWidth / 2) {
+    function moveByTouch(_event: TouchEvent): void {
+        if (_event.changedTouches[0].clientX < crc2.canvas.clientWidth / 2) {
         player.moveLeft();    
         }
         if (_event.changedTouches[0].clientY < crc2.canvas.clientHeight / 2) {
             player.moveUp();
             } else {
                 player.moveDown();    
-        }*/
-
-    let dx: number = _event.changedTouches[0].clientX - this.player.x;
-    let dy: number = _event.changedTouches[0].clientY - this.player.y;
-        
-    return Math.sqrt( dx * dx + dy * dy);
-    }
-
-    
-    function moveByRelease(_event: TouchEvent): void {
-        let distance: number = this.moveByTouch();
-        
-        if (distance < this.moveByTouch)
-            this.moveByTouch();
-    }
+        }
+}
 
 
 
