@@ -10,9 +10,11 @@ namespace Abschlussaufgabe {
 
     let player: Bee = new Bee();
 
-    let audio = new Audio("GameMusic3.mp3"); //Spielemusik
+    let audio = new Audio("GameMusic3.wav"); //Spielemusik
 
-    let highscore: number = 0; //Score steht zu Beginn auf 0
+    
+    
+    let blossomsCollected: number = 0; //Score steht zu Beginn auf 0
 
 
 
@@ -32,8 +34,10 @@ namespace Abschlussaufgabe {
 
         //window.addEventListener('touchstart', moveByTouch);
 
-
-
+        alert("Bbbsssss... Hello Friend! Can you help me collect those beautiful blossoms for my blossom honey? Be careful to not collect the green blossoms, they make me lose some other blossoms again");
+        alert("Use your keyboard to move the bee up, down, left and right and if you'll play it on your smartphone or tablet, move your finger over the screen for moving the bee");
+        
+        
         audio.loop = true; //Damit Musik sich wiederholt
         audio.play(); //Abspielen der Musik
         animate(); //Funktionsaufruf für "animate"
@@ -41,8 +45,7 @@ namespace Abschlussaufgabe {
         createFlowers();
         createTimer();
     }
-
-
+    
 
     //Funktion für die Animation
     function animate(): void {
@@ -77,7 +80,7 @@ namespace Abschlussaufgabe {
 
 
 
-    //Blumen werden random erstellt
+    //Blumen werden random erstellt und in Array gespeichert
     function createFlowers(): void {
         window.setTimeout(createFlowers, 2500);
 
@@ -121,7 +124,7 @@ namespace Abschlussaufgabe {
     }
 
 
-
+    //EventListener für das Bewegen der Biene mit den Pfeiltasten 
     window.addEventListener('keydown', function flyingBee(_e: KeyboardEvent): void {
         if (_e.key == "ArrowUp") {
             player.moveUp();
@@ -198,14 +201,14 @@ namespace Abschlussaufgabe {
 
     //Punktestand des Spiels
     function gameScore(score: number): void {
-        highscore += score;
+        blossomsCollected += score;
     }
 
     //Angzeige des Punktestandes
     function showScore(): void {
         crc2.font = "35px Comic Sans MS";
         crc2.fillStyle = "white";
-        crc2.fillText("Score: " + highscore + " Blossoms", 475, 550);
+        crc2.fillText("Score: " + blossomsCollected + " Blossoms", 475, 550);
     }
 
 
@@ -216,10 +219,9 @@ namespace Abschlussaufgabe {
     //Alert-Box 2 erscheint, wenn Alert-Box 1 weggeklickt wurde
     function gameEnd(): void {
         if (r <= 0) {
-            alert("Bsssss game's over! You've collected " + highscore + " blossoms");
-            alert("Click okay for playing Busy Bee again");
-            highscore = 0;
-            r = 61;
+            alert("Bsssss game's over! You've collected " + blossomsCollected + " blossoms");
+            alert("Wanna play again? Click okay for another round");
+           
 
         }
     }

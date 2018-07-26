@@ -5,8 +5,8 @@ var Abschlussaufgabe;
     let r = 61; //f�r den Timer
     let imgData;
     let player = new Abschlussaufgabe.Bee();
-    let audio = new Audio("GameMusic3.mp3"); //Spielemusik
-    let highscore = 0; //Score steht zu Beginn auf 0
+    let audio = new Audio("GameMusic3.wav"); //Spielemusik
+    let blossomsCollected = 0; //Score steht zu Beginn auf 0
     function init(_event) {
         let canvas = document.getElementsByTagName("canvas")[0];
         Abschlussaufgabe.crc2 = canvas.getContext("2d");
@@ -18,6 +18,8 @@ var Abschlussaufgabe;
         console.log(imgData);
         //window.addEventListener('keydown', flyingBee); //EventListener f�r Pfeiltasten
         //window.addEventListener('touchstart', moveByTouch);
+        alert("Bbbsssss... Hello Friend! Can you help me collect those beautiful blossoms for my blossom honey? Be careful to not collect the green blossoms, they make me lose some other blossoms again");
+        alert("Use your keyboard to move the bee up, down, left and right and if you'll play it on your smartphone or tablet, move your finger over the screen for moving the bee");
         audio.loop = true; //Damit Musik sich wiederholt
         audio.play(); //Abspielen der Musik
         animate(); //Funktionsaufruf f�r "animate"
@@ -47,7 +49,7 @@ var Abschlussaufgabe;
         showScore(); //Score wird gezeichnet
         gameEnd(); //Alert-Box
     }
-    //Blumen werden random erstellt
+    //Blumen werden random erstellt und in Array gespeichert
     function createFlowers() {
         window.setTimeout(createFlowers, 2500);
         let p = Math.floor(Math.random() * 4);
@@ -84,6 +86,7 @@ var Abschlussaufgabe;
             }
         }
     }
+    //EventListener f�r das Bewegen der Biene mit den Pfeiltasten 
     window.addEventListener('keydown', function flyingBee(_e) {
         if (_e.key == "ArrowUp") {
             player.moveUp();
@@ -142,22 +145,20 @@ var Abschlussaufgabe;
     }
     //Punktestand des Spiels
     function gameScore(score) {
-        highscore += score;
+        blossomsCollected += score;
     }
     //Angzeige des Punktestandes
     function showScore() {
         Abschlussaufgabe.crc2.font = "35px Comic Sans MS";
         Abschlussaufgabe.crc2.fillStyle = "white";
-        Abschlussaufgabe.crc2.fillText("Score: " + highscore + " Blossoms", 475, 550);
+        Abschlussaufgabe.crc2.fillText("Score: " + blossomsCollected + " Blossoms", 475, 550);
     }
     //Alert-Box 1 erscheint, wenn der Timer abgelaufen ist und zeigt gesammelte Bl�ten an
     //Alert-Box 2 erscheint, wenn Alert-Box 1 weggeklickt wurde
     function gameEnd() {
         if (r <= 0) {
-            alert("Bsssss game's over! You've collected " + highscore + " blossoms");
-            alert("Click okay for playing Busy Bee again");
-            highscore = 0;
-            r = 61;
+            alert("Bsssss game's over! You've collected " + blossomsCollected + " blossoms");
+            alert("Wanna play again? Click okay for another round");
         }
     }
 })(Abschlussaufgabe || (Abschlussaufgabe = {}));
