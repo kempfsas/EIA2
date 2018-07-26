@@ -5,7 +5,7 @@ namespace Abschlussaufgabe {
         y: number;
         radius: number;
         color: string;
-        score: number;
+        blossoms: number;
 
         constructor() {
             this.x = 300;

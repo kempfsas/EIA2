@@ -6,7 +6,7 @@ var Abschlussaufgabe;
     let imgData;
     let player = new Abschlussaufgabe.Bee();
     let audio = new Audio("GameMusic3.wav"); //Spielemusik
-    let highscore = 0; //Score steht zu Beginn auf 0
+    let score = 0; //Score steht zu Beginn auf 0
     function init(_event) {
         let canvas = document.getElementsByTagName("canvas")[0];
         Abschlussaufgabe.crc2 = canvas.getContext("2d");
@@ -82,7 +82,7 @@ var Abschlussaufgabe;
             if (collected) {
                 Abschlussaufgabe.flowers.splice(i, 1);
                 //this.flower = null;
-                gameScore(flower.score);
+                gameScore(flower.blossoms);
             }
         }
     }
@@ -143,21 +143,21 @@ var Abschlussaufgabe;
         Abschlussaufgabe.crc2.fillText("Time: " + r + " sec.", 60, 550);
     }
     //Punktestand des Spiels
-    function gameScore(score) {
-        highscore += score;
+    function gameScore(blossoms) {
+        score += blossoms;
     }
     //Angzeige des Punktestandes
     function showScore() {
         Abschlussaufgabe.crc2.font = "35px Comic Sans MS";
         Abschlussaufgabe.crc2.fillStyle = "white";
-        Abschlussaufgabe.crc2.fillText("Score: " + highscore + " Blossoms", 475, 550);
+        Abschlussaufgabe.crc2.fillText("Score: " + score + " Blossoms", 475, 550);
     }
     //Alert-Box 1 erscheint, wenn der Timer abgelaufen ist und zeigt gesammelte Bl�ten an
     //Alert-Box 2 erscheint, wenn Alert-Box 1 weggeklickt wurde
     function gameEnd() {
         if (r <= 0) {
-            alert("Bsssss game's over! You've collected " + highscore + " blossoms");
-            alert("Wanna play again? Click okay for another round");
+            alert("Bsssss game's over! You've collected " + score + " blossoms");
+            alert("Wanna play again? Reload page for another game");
         }
     }
 })(Abschlussaufgabe || (Abschlussaufgabe = {}));

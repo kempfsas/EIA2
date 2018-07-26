@@ -5,7 +5,7 @@ var Abschlussaufgabe;
             super();
             this.setColor();
             this.setRandomPosition();
-            this.score = 4;
+            this.blossoms = 4;
             // this.draw(); 
         }
         setColor() {

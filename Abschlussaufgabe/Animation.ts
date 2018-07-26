@@ -14,7 +14,7 @@ namespace Abschlussaufgabe {
 
     
     
-    let highscore: number = 0; //Score steht zu Beginn auf 0
+    let score: number = 0; //Score steht zu Beginn auf 0
 
 
 
@@ -118,7 +118,7 @@ namespace Abschlussaufgabe {
             if (collected) {
                 flowers.splice(i, 1);
                 //this.flower = null;
-                gameScore(flower.score);
+                gameScore(flower.blossoms);
             }
         }
     }
@@ -200,15 +200,15 @@ namespace Abschlussaufgabe {
 
 
     //Punktestand des Spiels
-    function gameScore(score: number): void {
-        highscore += score;
+    function gameScore(blossoms: number): void {
+        score += blossoms;
     }
 
     //Angzeige des Punktestandes
     function showScore(): void {
         crc2.font = "35px Comic Sans MS";
         crc2.fillStyle = "white";
-        crc2.fillText("Score: " + highscore + " Blossoms", 475, 550);
+        crc2.fillText("Score: " + score + " Blossoms", 475, 550);
     }
 
 
@@ -219,8 +219,8 @@ namespace Abschlussaufgabe {
     //Alert-Box 2 erscheint, wenn Alert-Box 1 weggeklickt wurde
     function gameEnd(): void {
         if (r <= 0) {
-            alert("Bsssss game's over! You've collected " + highscore + " blossoms");
-            alert("Wanna play again? Click okay for another round");
+            alert("Bsssss game's over! You've collected " + score + " blossoms");
+            alert("Wanna play again? Reload page for another game");
 
 
         }
