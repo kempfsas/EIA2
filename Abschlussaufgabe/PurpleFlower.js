@@ -4,6 +4,7 @@ var Abschlussaufgabe;
         constructor() {
             super();
             this.setColor();
+            this.checkPosition();
             this.setRandomPosition();
             this.blossoms = 4;
             // this.draw(); 

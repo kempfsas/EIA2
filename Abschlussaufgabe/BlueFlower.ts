@@ -5,6 +5,7 @@ namespace Abschlussaufgabe {
         constructor() {
             super();
             this.setColor();
+            this.checkPosition();
             this.setRandomPosition();
             this.blossoms = 1;
            // this.draw();

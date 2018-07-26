@@ -13,7 +13,8 @@ namespace Abschlussaufgabe {
         }
         
         checkPosition(): void {
-
+            this.x += 0;
+            this.y += 0;
         }
         
         setRandomPosition(): void {

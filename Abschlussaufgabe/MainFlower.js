@@ -6,6 +6,8 @@ var Abschlussaufgabe;
             this.y = 300;
         }
         checkPosition() {
+            this.x += 0;
+            this.y += 0;
         }
         setRandomPosition() {
             this.x = Math.random() * Abschlussaufgabe.crc2.canvas.width;
