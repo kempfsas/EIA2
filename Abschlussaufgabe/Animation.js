@@ -6,7 +6,7 @@ var Abschlussaufgabe;
     let imgData;
     let player = new Abschlussaufgabe.Bee();
     let audio = new Audio("GameMusic3.wav"); //Spielemusik
-    let blossomsCollected = 0; //Score steht zu Beginn auf 0
+    let highscore = 0; //Score steht zu Beginn auf 0
     function init(_event) {
         let canvas = document.getElementsByTagName("canvas")[0];
         Abschlussaufgabe.crc2 = canvas.getContext("2d");
@@ -86,7 +86,6 @@ var Abschlussaufgabe;
             }
         }
     }
-    //EventListener f�r das Bewegen der Biene mit den Pfeiltasten 
     window.addEventListener('keydown', function flyingBee(_e) {
         if (_e.key == "ArrowUp") {
             player.moveUp();
@@ -145,19 +144,19 @@ var Abschlussaufgabe;
     }
     //Punktestand des Spiels
     function gameScore(score) {
-        blossomsCollected += score;
+        highscore += score;
     }
     //Angzeige des Punktestandes
     function showScore() {
         Abschlussaufgabe.crc2.font = "35px Comic Sans MS";
         Abschlussaufgabe.crc2.fillStyle = "white";
-        Abschlussaufgabe.crc2.fillText("Score: " + blossomsCollected + " Blossoms", 475, 550);
+        Abschlussaufgabe.crc2.fillText("Score: " + highscore + " Blossoms", 475, 550);
     }
     //Alert-Box 1 erscheint, wenn der Timer abgelaufen ist und zeigt gesammelte Bl�ten an
     //Alert-Box 2 erscheint, wenn Alert-Box 1 weggeklickt wurde
     function gameEnd() {
         if (r <= 0) {
-            alert("Bsssss game's over! You've collected " + blossomsCollected + " blossoms");
+            alert("Bsssss game's over! You've collected " + highscore + " blossoms");
             alert("Wanna play again? Click okay for another round");
         }
     }

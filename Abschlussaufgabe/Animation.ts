@@ -14,7 +14,7 @@ namespace Abschlussaufgabe {
 
     
     
-    let blossomsCollected: number = 0; //Score steht zu Beginn auf 0
+    let highscore: number = 0; //Score steht zu Beginn auf 0
 
 
 
@@ -124,7 +124,7 @@ namespace Abschlussaufgabe {
     }
 
 
-    //EventListener für das Bewegen der Biene mit den Pfeiltasten 
+    
     window.addEventListener('keydown', function flyingBee(_e: KeyboardEvent): void {
         if (_e.key == "ArrowUp") {
             player.moveUp();
@@ -201,14 +201,14 @@ namespace Abschlussaufgabe {
 
     //Punktestand des Spiels
     function gameScore(score: number): void {
-        blossomsCollected += score;
+        highscore += score;
     }
 
     //Angzeige des Punktestandes
     function showScore(): void {
         crc2.font = "35px Comic Sans MS";
         crc2.fillStyle = "white";
-        crc2.fillText("Score: " + blossomsCollected + " Blossoms", 475, 550);
+        crc2.fillText("Score: " + highscore + " Blossoms", 475, 550);
     }
 
 
@@ -219,9 +219,9 @@ namespace Abschlussaufgabe {
     //Alert-Box 2 erscheint, wenn Alert-Box 1 weggeklickt wurde
     function gameEnd(): void {
         if (r <= 0) {
-            alert("Bsssss game's over! You've collected " + blossomsCollected + " blossoms");
+            alert("Bsssss game's over! You've collected " + highscore + " blossoms");
             alert("Wanna play again? Click okay for another round");
-           
+
 
         }
     }
