@@ -69,7 +69,7 @@ namespace Abschlussaufgabe {
         drawObjects();
     }
 
-
+    //Check-Position, damit Blumen nicht wie verrückt blinken und wahnsinnig machen
     function moveObjects(): void {
 
         for (let i: number = 0; i < flowers.length; i++) {
@@ -119,8 +119,8 @@ namespace Abschlussaufgabe {
 
 
 
-    //Kontrolle der Position der Biene. 
-    //Hat sie die selbe Position wie die Blume, verschwindet die Blume durch das splice
+    //Kontrolle der Position
+    //Hat Biene die selbe Position wie die Blume bzw befindet sich diese in deren Umfeld, verschwindet die Blume durch das splice
     function checkPosition(): void {
         window.setTimeout(checkPosition, 10);
         for (let i: number = 0; i < flowers.length; i++) {
@@ -129,7 +129,6 @@ namespace Abschlussaufgabe {
 
             if (collected) {
                 flowers.splice(i, 1);
-                //this.flower = null;
                 gameScore(flower.blossoms);
             }
         }

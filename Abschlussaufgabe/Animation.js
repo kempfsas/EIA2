@@ -44,6 +44,7 @@ var Abschlussaufgabe;
         moveObjects();
         drawObjects();
     }
+    //Check-Position, damit Blumen nicht wie verr�ckt blinken und wahnsinnig machen
     function moveObjects() {
         for (let i = 0; i < Abschlussaufgabe.flowers.length; i++) {
             Abschlussaufgabe.flowers[i].checkPosition();
@@ -82,8 +83,8 @@ var Abschlussaufgabe;
                 break;
         }
     }
-    //Kontrolle der Position der Biene. 
-    //Hat sie die selbe Position wie die Blume, verschwindet die Blume durch das splice
+    //Kontrolle der Position
+    //Hat Biene die selbe Position wie die Blume bzw befindet sich diese in deren Umfeld, verschwindet die Blume durch das splice
     function checkPosition() {
         window.setTimeout(checkPosition, 10);
         for (let i = 0; i < Abschlussaufgabe.flowers.length; i++) {
@@ -91,7 +92,6 @@ var Abschlussaufgabe;
             let collected = player.collectedFlowers(flower.x, flower.y);
             if (collected) {
                 Abschlussaufgabe.flowers.splice(i, 1);
-                //this.flower = null;
                 gameScore(flower.blossoms);
             }
         }
