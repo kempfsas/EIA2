@@ -58,7 +58,8 @@ var Abschlussaufgabe;
         showScore(); //Score wird gezeichnet
         gameEnd(); //Alert-Box
     }
-    //Blumen werden random erstellt und in Array gespeichert
+    //Blumen werden random erstellt und in Array gespeichert 
+    //(wie bei schon bei voriger Aufgabe mit der Farbe der Fische)
     function createFlowers() {
         window.setTimeout(createFlowers, 2500);
         let p = Math.floor(Math.random() * 4);
@@ -95,47 +96,36 @@ var Abschlussaufgabe;
             }
         }
     }
+    //Fliegen der Biene am PC
     window.addEventListener('keydown', function flyingBee(_e) {
         if (_e.key == "ArrowUp") {
-            player.moveUp();
+            player.flyUpwards();
         }
         if (_e.key == "ArrowDown") {
-            player.moveDown();
+            player.flyDownwards();
         }
         if (_e.key == "ArrowLeft") {
-            player.moveLeft();
+            player.flyToLeft();
         }
         if (_e.key == "ArrowRight") {
-            player.moveRight();
+            player.flyToRight();
         }
     }, false);
+    //Fliegen der Biene am Smartphone/Tablet
     window.addEventListener('touchmove', function (_e) {
         if (_e.changedTouches[0].clientX < Abschlussaufgabe.crc2.canvas.clientWidth / 2) {
-            player.moveLeft();
+            player.flyToLeft();
         }
         else {
-            player.moveRight();
+            player.flyToRight();
         }
         if (_e.changedTouches[0].clientY < Abschlussaufgabe.crc2.canvas.clientHeight / 2) {
-            player.moveUp();
+            player.flyUpwards();
         }
         else {
-            player.moveDown();
+            player.flyDownwards();
         }
     }, false);
-    //Steuerung der Biene auf Tablet und Smartphone
-    /* function moveByTouch(_event: TouchEvent): void {
-         if (_event.changedTouches[0].clientX < crc2.canvas.clientWidth / 2) {
-             player.moveLeft();
-         } else {
-             player.moveRight();
-         }
-         
-         if (_event.changedTouches[0].clientY < crc2.canvas.clientHeight / 2) {
-             player.moveUp();
-             } else {
-                 player.moveDown();
-         }   } */
     //Timer 
     function createTimer() {
         console.log("setTimer");

@@ -40,22 +40,22 @@ var Abschlussaufgabe;
             Abschlussaufgabe.crc2.fill();
         }
         move() { }
-        moveLeft() {
+        flyToLeft() {
             if (this.x > 0) {
                 this.x -= 10;
             }
         }
-        moveRight() {
+        flyToRight() {
             if (this.x < Abschlussaufgabe.crc2.canvas.width) {
                 this.x += 10;
             }
         }
-        moveUp() {
+        flyUpwards() {
             if (this.y > 0) {
                 this.y -= 10;
             }
         }
-        moveDown() {
+        flyDownwards() {
             if (this.y < Abschlussaufgabe.crc2.canvas.height) {
                 this.y += 10;
             }

@@ -58,25 +58,25 @@ namespace Abschlussaufgabe {
         
          move(): void { }
 
-        moveLeft(): void {
+        flyToLeft(): void {
             if (this.x > 0) {
                 this.x -= 10;
             }
         }
 
-        moveRight(): void {
+        flyToRight(): void {
             if (this.x < crc2.canvas.width) {
                 this.x += 10;
             }
         }
 
-        moveUp(): void {
+        flyUpwards(): void {
             if (this.y > 0) {
                 this.y -= 10;
             }
         }
 
-        moveDown(): void {
+        flyDownwards(): void {
             if (this.y < crc2.canvas.height) {
                 this.y += 10;
             }
