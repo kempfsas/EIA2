@@ -6,8 +6,8 @@ namespace Abschlussaufgabe {
         radius: number;
         flower: MainFlower;
         
-        beeAreaOne: number = 30;
-        beeAreaTwo: number = 30;
+        beeEnvironmentX: number = 30;
+        beeEnvironmentY: number = 30;
 
         constructor() {
             this.x = 100;
@@ -83,7 +83,7 @@ namespace Abschlussaufgabe {
         }
         
         collectedFlowers(_x: number, _y: number): boolean {
-            if (_x > this.x && _x < ( this.x + this.beeAreaOne ) && _y > this.y && _y < this.y + this.beeAreaTwo ) {
+            if (_x > this.x && _x < ( this.x + this.beeEnvironmentX ) && _y > this.y && _y < this.y + this.beeEnvironmentY ) {
                 return true;
             }
             return false;

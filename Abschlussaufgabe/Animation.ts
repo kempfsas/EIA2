@@ -1,3 +1,16 @@
+/*
+Aufgabe: Abschlussaufgabe
+Name: Saskia Kempf
+Matrikel: 257180
+Datum: 19.07.2018
+Hiermit versichere ich, dass ich diesen
+Code selbst geschrieben habe. Er wurde
+nicht kopiert und auch nicht diktiert.
+*/
+
+
+
+
 namespace Abschlussaufgabe {
     window.addEventListener("load", init);
     export let crc2: CanvasRenderingContext2D;

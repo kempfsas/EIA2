@@ -2,8 +2,8 @@ var Abschlussaufgabe;
 (function (Abschlussaufgabe) {
     class Bee {
         constructor() {
-            this.beeAreaOne = 30;
-            this.beeAreaTwo = 30;
+            this.beeEnvironmentX = 30;
+            this.beeEnvironmentY = 30;
             this.x = 100;
             this.y = 100;
         }
@@ -61,7 +61,7 @@ var Abschlussaufgabe;
             }
         }
         collectedFlowers(_x, _y) {
-            if (_x > this.x && _x < (this.x + this.beeAreaOne) && _y > this.y && _y < this.y + this.beeAreaTwo) {
+            if (_x > this.x && _x < (this.x + this.beeEnvironmentX) && _y > this.y && _y < this.y + this.beeEnvironmentY) {
                 return true;
             }
             return false;
